@@ -60,9 +60,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-python-
       - name: Install dependencies
-        run: |
-          uv sync --dev
-          uv add maturin
+        run: uv sync --dev
+      - name: Install maturin
+        run: cargo install maturin
       - name: Build package
         run: maturin develop --release
       - name: Clone figures repository
