@@ -274,4 +274,3 @@ jobs:
         with:
           command: upload
           args: --non-interactive --skip-existing wheels-*/*
-          manifest-path: pyproject.toml
