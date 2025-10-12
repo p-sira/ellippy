@@ -33,6 +33,7 @@ jobs:
       - name: Clone figures repository
         run: |
           git clone https://github.com/p-sira/ellip.git
+          mkdir -p docs/source/_static/figures/
           cp -r ellip/figures/* docs/source/_static/figures/
           rm -rf ellip
       - name: Build documentation
