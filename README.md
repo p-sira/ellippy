@@ -1,6 +1,6 @@
 <h1 align="center">
     <a href="https://github.com/p-sira/ellip/">
-        <img src="https://github.com/p-sira/ellippy/blob/main/logo/ellippy-logo.svg?raw=true" alt="EllipPy" width="300">
+        <img src="https://github.com/p-sira/ellippy/blob/main/logo/ellippy-logo.svg?raw=true" alt="EllipPy" width="350">
     </a>
 </h1>
 
