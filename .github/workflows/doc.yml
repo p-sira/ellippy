@@ -62,10 +62,11 @@ jobs:
             ${{ runner.os }}-python-
       - name: Install dependencies
         run: uv sync --dev
-      - name: Install maturin
-        run: cargo install maturin@1.9.4
       - name: Build package
-        run: maturin develop --release
+        uses: PyO3/maturin-action@v1
+        with:
+          command: develop
+          args: --release
       - name: Clone figures repository
         run: |
           git clone https://github.com/p-sira/ellip.git
