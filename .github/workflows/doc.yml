@@ -32,9 +32,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Clone figures repository
         run: |
-          git clone https://github.com/p-sira/ellip.git temp-ellip
-          cp -r temp-ellip/figures/* docs/source/_static/figures/
-          rm -rf temp-ellip
+          git clone https://github.com/p-sira/ellip.git
+          cp -r ellip/figures/* docs/source/_static/figures/
+          rm -rf ellip
       - name: Build documentation
         run: |
           cd docs
