@@ -14,8 +14,8 @@ permissions:
   contents: read
 
 env:
-  # Only strip on tagged builds
-  STRIP_FLAG: ${{ startsWith(github.ref, 'refs/tags/') && '--strip' || '' }}
+  # Strip on tagged builds and manual workflow dispatch
+  STRIP_FLAG: ${{ (startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch') && '--strip' || '' }}
 
 jobs:
   linux:
@@ -40,6 +40,28 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin
+            target
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
+            ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/maturin
+          key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-${{ matrix.platform.target }}-
+            ${{ runner.os }}-python-
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -47,6 +69,7 @@ jobs:
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
           manylinux: auto
+          manifest-path: pyproject.toml
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
@@ -71,6 +94,30 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin
+            target
+          key: ${{ runner.os }}-cargo-musl-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-musl-${{ matrix.platform.target }}-
+            ${{ runner.os }}-cargo-musl-
+            ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/maturin
+          key: ${{ runner.os }}-python-musl-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-musl-${{ matrix.platform.target }}-
+            ${{ runner.os }}-python-musl-
+            ${{ runner.os }}-python-
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -78,6 +125,7 @@ jobs:
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
           manylinux: musllinux_1_2
+          manifest-path: pyproject.toml
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
@@ -99,12 +147,35 @@ jobs:
         with:
           python-version: 3.x
           architecture: ${{ matrix.platform.target }}
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin
+            target
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
+            ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/maturin
+          key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-${{ matrix.platform.target }}-
+            ${{ runner.os }}-python-
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.platform.target }}
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
+          manifest-path: pyproject.toml
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
@@ -125,12 +196,35 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin
+            target
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
+            ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/maturin
+          key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-${{ matrix.platform.target }}-
+            ${{ runner.os }}-python-
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.platform.target }}
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
+          manifest-path: pyproject.toml
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
@@ -141,11 +235,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/maturin
+          key: ${{ runner.os }}-python-sdist-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-sdist-
+            ${{ runner.os }}-python-
       - name: Build sdist
         uses: PyO3/maturin-action@v1
         with:
           command: sdist
           args: --out dist
+          manifest-path: pyproject.toml
       - name: Upload sdist
         uses: actions/upload-artifact@v4
         with:
@@ -168,10 +273,9 @@ jobs:
         with:
           subject-path: 'wheels-*/*'
       - name: Publish to PyPI
-        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        if: ${{ startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch' }}
         uses: PyO3/maturin-action@v1
-        env:
-          MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         with:
           command: upload
           args: --non-interactive --skip-existing wheels-*/*
+          manifest-path: pyproject.toml

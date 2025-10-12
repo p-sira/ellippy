@@ -67,12 +67,20 @@ jobs:
         with:
           command: develop
           args: --release
+      - name: Cache figures repository
+        uses: actions/cache@v4
+        with:
+          path: ellip
+          key: figures-${{ hashFiles('**/docs/source/_static/figures/**') }}
+          restore-keys: |
+            figures-
       - name: Clone figures repository
         run: |
-          git clone https://github.com/p-sira/ellip.git
+          if [ ! -d "ellip" ]; then
+            git clone https://github.com/p-sira/ellip.git
+          fi
           mkdir -p docs/source/_static/figures/
           cp -r ellip/figures/* docs/source/_static/figures/
-          rm -rf ellip
       - name: Build documentation
         run: |
           cd docs
