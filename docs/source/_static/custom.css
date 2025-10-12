@@ -12,3 +12,10 @@ a.nav-link.nav-internal[href*="ellippy."] {
 button.btn.dropdown-toggle.nav-item {
     display: none !important;
 }
+
+html[data-theme="dark"] img {
+    filter: none;
+}
+html[data-theme="dark"] .bd-content img:not(.only-dark):not(.dark-light) {
+    background: unset;
+}
