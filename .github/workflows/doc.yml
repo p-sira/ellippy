@@ -61,7 +61,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-python-
       - name: Install dependencies
-        run: uv sync --dev
+        run: |
+          uv sync --dev
+          uv add sphinx sphinx-autodoc-typehints pydata-sphinx-theme
       - name: Build package
         uses: PyO3/maturin-action@v1
         with:
