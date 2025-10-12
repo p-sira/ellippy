@@ -15,7 +15,7 @@
         <img src="https://pepy.tech/projects/ellippy" alt="Total Downloads">
     </a>
     <a href="https://p-sira.github.io/ellippy">
-        <img src="https://img.shields.io/badge/Docs-github.io-black" alt="Documentation">
+        <img src="https://img.shields.io/badge/Docs-github.io-blue" alt="Documentation">
     </a>
 </p>
 
