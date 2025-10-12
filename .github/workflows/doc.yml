@@ -46,6 +46,7 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
+            ~/.cargo/bin
             target
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: |
@@ -62,7 +63,7 @@ jobs:
       - name: Install dependencies
         run: uv sync --dev
       - name: Install maturin
-        run: cargo install maturin
+        run: cargo install maturin@1.9.4
       - name: Build package
         run: maturin develop --release
       - name: Clone figures repository
