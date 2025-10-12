@@ -1,0 +1,5 @@
+/target
+.vscode
+ellippy_binding.cpython-*
+__pycache__
+build

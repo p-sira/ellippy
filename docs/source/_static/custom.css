@@ -1,0 +1,14 @@
+/*
+ * EllipPy is licensed under The 3-Clause BSD, see LICENSE.
+ * Copyright 2025 Sira Pornsiriprasert <code@psira.me>
+ */
+
+/* Hide the items on navbar. Hacky! */
+
+a.nav-link.nav-internal[href*="ellippy."] {
+    display: none !important;
+}
+
+button.btn.dropdown-toggle.nav-item {
+    display: none !important;
+}

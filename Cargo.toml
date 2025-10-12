@@ -1,0 +1,13 @@
+[package]
+name = "ellippy_binding"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "ellippy_binding"
+crate-type = ["cdylib"]
+
+[dependencies]
+ellip-rayon = "^0.5.1"
+numpy = "0.26.0"
+pyo3 = { version = "0.26.0", features = ["extension-module"] }
