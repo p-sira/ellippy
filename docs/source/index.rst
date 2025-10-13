@@ -47,7 +47,7 @@ Quick Start
    jacobi_zeta(phi=np.pi / 3, m=0.5) # 0.13272240254017148
 
 
-To install EllipPy, use your prefered package manager:
+To install EllipPy, use your preferred package manager:
 
 .. code:: shell
    
