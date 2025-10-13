@@ -46,9 +46,7 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
-            ~/.cargo/bin
-            target
-          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
             ${{ runner.os }}-cargo-
@@ -57,7 +55,6 @@ jobs:
         with:
           path: |
             ~/.cache/pip
-            ~/.cache/maturin
           key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-python-${{ matrix.platform.target }}-
@@ -99,9 +96,7 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
-            ~/.cargo/bin
-            target
-          key: ${{ runner.os }}-cargo-musl-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-musl-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-cargo-musl-${{ matrix.platform.target }}-
             ${{ runner.os }}-cargo-musl-
@@ -111,7 +106,6 @@ jobs:
         with:
           path: |
             ~/.cache/pip
-            ~/.cache/maturin
           key: ${{ runner.os }}-python-musl-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-python-musl-${{ matrix.platform.target }}-
@@ -151,9 +145,7 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
-            ~/.cargo/bin
-            target
-          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
             ${{ runner.os }}-cargo-
@@ -162,7 +154,6 @@ jobs:
         with:
           path: |
             ~/.cache/pip
-            ~/.cache/maturin
           key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-python-${{ matrix.platform.target }}-
@@ -199,9 +190,7 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
-            ~/.cargo/bin
-            target
-          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
             ${{ runner.os }}-cargo-
@@ -210,7 +199,6 @@ jobs:
         with:
           path: |
             ~/.cache/pip
-            ~/.cache/maturin
           key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-python-${{ matrix.platform.target }}-
@@ -236,7 +224,6 @@ jobs:
         with:
           path: |
             ~/.cache/pip
-            ~/.cache/maturin
           key: ${{ runner.os }}-python-sdist-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: |
             ${{ runner.os }}-python-sdist-
