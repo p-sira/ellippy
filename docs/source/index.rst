@@ -17,7 +17,7 @@ EllipPy Documentation
          <img src="https://img.shields.io/pypi/v/ellippy?label=pypi%20package" alt="PyPI Package">
       </a>
       <a href="https://pypi.org/project/ellippy">
-         <img src="https://pepy.tech/projects/ellippy" alt="Total Downloads">
+         <img src="https://static.pepy.tech/personalized-badge/ellippy?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BRIGHTGREEN&left_text=downloads" alt="Total Downloads">
       </a>
       <a href="https://p-sira.github.io/ellippy">
          <img src="https://img.shields.io/badge/Docs-github.io-blue" alt="Documentation">
