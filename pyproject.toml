@@ -1,7 +1,10 @@
 [project]
 name = "ellippy"
-version = "0.1.0"
 description = "An elliptic integral library for Python"
+authors = [{ name = "Sira Pornsiriprasert", email = "code@psira.me" }]
+maintainers = [{ name = "Sira Pornsiriprasert", email = "code@psira.me" }]
+
+dynamic = ["version"]
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
@@ -9,10 +12,17 @@ classifiers = [
     "License :: OSI Approved :: BSD License",
     "Operating System :: OS Independent",
 ]
+
 dependencies = [
     "maturin>=1.9.4",
     "numpy>=2.2.6",
 ]
+
+[project.urls]
+Homepage = "https://github.com/p-sira/ellippy"
+Repository = "https://github.com/p-sira/ellippy"
+Issues = "https://github.com/p-sira/ellippy/issues"
+Documentation = "https://p-sira.github.io/ellippy/"
 
 [tool.maturin]
 python-source = "python"
