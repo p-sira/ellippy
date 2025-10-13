@@ -17,7 +17,7 @@ EllipPy Documentation
          <img src="https://img.shields.io/pypi/v/ellippy?label=pypi%20package" alt="PyPI Package">
       </a>
       <a href="https://pypi.org/project/ellippy">
-         <img src="https://pepy.tech/projects/ellippy" alt="Total Downloads">
+         <img src="https://static.pepy.tech/personalized-badge/ellippy?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BRIGHTGREEN&left_text=downloads" alt="Total Downloads">
       </a>
       <a href="https://p-sira.github.io/ellippy">
          <img src="https://img.shields.io/badge/Docs-github.io-blue" alt="Documentation">
@@ -26,7 +26,7 @@ EllipPy Documentation
 
 ----
 
-**EllipPy** is an elliptic integral library, powered by Rust. All functions support `numpy` and parallelization. EllipPy features high accuracy and performance. For more details on testing and benchmarks, please refer to `Ellip <https://github.com/p-sira/ellip>`_.
+**EllipPy** is an elliptic integral library for Python, powered by Rust. All functions support numpy and parallelization. EllipPy features high accuracy and performance. For more details on testing and benchmarks, please refer to [Ellip](https://github.com/p-sira/ellip).
 
 Quick Start
 -----------
@@ -47,11 +47,15 @@ Quick Start
    jacobi_zeta(phi=np.pi / 3, m=0.5) # 0.13272240254017148
 
 
-To install EllipPy using pip:
+To install EllipPy, use your prefered package manager:
 
 .. code:: shell
    
    pip install ellippy
+
+.. code:: shell
+   
+   uv add ellippy
 
 |
 
