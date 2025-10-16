@@ -30,7 +30,7 @@ def jacobi_zeta(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/jacobi_zeta_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/jacobi_zeta.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - Z(0, m) = 0
@@ -72,7 +72,7 @@ def heuman_lambda(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/heuman_lambda_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/heuman_lambda.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - Λ₀(nπ/2, m) = n where n ∈ ℤ

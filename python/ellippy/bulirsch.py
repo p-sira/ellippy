@@ -31,7 +31,7 @@ def cel(kc: ArrayLike, p: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray |
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/cel_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/cel.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - cel(kc, p, 0, 0) = 0
@@ -74,7 +74,7 @@ def cel1(kc: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/cel1_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/cel1.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - cel1(kc) = 0 for \|kc\| = ∞
@@ -110,7 +110,7 @@ def cel2(kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/cel2_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/cel2.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - cel2(kc, 0, 0) = 0
@@ -150,7 +150,7 @@ def el1(x: ArrayLike, kc: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/el1_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/el1.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - el1(0, kc) = 0
@@ -191,7 +191,7 @@ def el2(x: ArrayLike, kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray |
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/el2_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/el2.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - el2(0, kc, a, b) = 0
@@ -233,7 +233,7 @@ def el3(x: ArrayLike, kc: ArrayLike, p: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/el3_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/el3.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - el3(0, kc, p) = 0

@@ -29,7 +29,7 @@ def ellipk(m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/ellipk_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/ellipk.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - K(0) = π/2
@@ -71,7 +71,7 @@ def ellipe(m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/ellipe_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/ellipe.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - E(0) = π/2
@@ -116,7 +116,7 @@ def ellippi(n: ArrayLike, m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/ellippi_plot_3d.html" width="100%" height="650px"></iframe>
+            <iframe src="./../_static/figures/ellippi_3d.html" width="100%" height="650px"></iframe>
 
     Special Cases:
         - Π(0, 0) = π/2
@@ -164,7 +164,7 @@ def ellipd(m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/ellipd_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/ellipd.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - D(0) = π/4
@@ -207,7 +207,7 @@ def ellipf(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/ellipf_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/ellipf.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - F(0, m) = 0
@@ -251,7 +251,7 @@ def ellipeinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/ellipeinc_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/ellipeinc.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - E(0, m) = 0
@@ -297,7 +297,7 @@ def ellippiinc(n: ArrayLike, phi: ArrayLike, m: ArrayLike) -> FloatArray | float
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/ellippiinc_plot_3d.html" width="100%" height="650px"></iframe>
+            <iframe src="./../_static/figures/ellippiinc_3d.html" width="100%" height="650px"></iframe>
 
     Special Cases:
         - Π(0, n, m) = 0
@@ -346,7 +346,7 @@ def ellipdinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/ellipdinc_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/ellipdinc.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - D(0, m) = 0
