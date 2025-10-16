@@ -29,7 +29,7 @@ def elliprf(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/elliprf_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/elliprf.html" width="100%" height="500px"></iframe>
 
     Special Cases:
         - RF(x, x, x) = 1/sqrt(x)
@@ -73,7 +73,7 @@ def elliprg(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/elliprg_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/elliprg.html" width="100%" height="500px"></iframe>
     
     Special Cases:
         - RG(x, x, x) = sqrt(x)
@@ -120,7 +120,7 @@ def elliprj(
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/elliprj_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/elliprj.html" width="100%" height="500px"></iframe>
     
     Special Cases:
         - RJ(x, x, x, x) = 1/(x sqrt(x))
@@ -164,7 +164,7 @@ def elliprc(x: ArrayLike, y: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/elliprc_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/elliprc.html" width="100%" height="500px"></iframe>
     
     Special Cases:
         - RC(x, x) = 1/sqrt(x)
@@ -207,7 +207,7 @@ def elliprd(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
     Graph:
         .. raw:: html
 
-            <iframe src="./../_static/figures/elliprd_plot.html" width="100%" height="500px"></iframe>
+            <iframe src="./../_static/figures/elliprd.html" width="100%" height="500px"></iframe>
     
     Special Cases:
         - RD(x, x, x) = 1/(x sqrt(x))
