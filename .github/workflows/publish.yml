@@ -47,7 +47,7 @@ jobs:
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
-          target: ubuntu-22.04
+          target: x86_64
           args: --release --out dist --find-interpreter
       - name: Pytest
         run: |
