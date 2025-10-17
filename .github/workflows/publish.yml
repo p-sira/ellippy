@@ -66,6 +66,12 @@ jobs:
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
           manylinux: auto
+      - name: Install pytest and built wheel
+        run: |
+          pip install pytest
+          pip install --no-index --find-links dist ellippy
+      - name: Run pytest
+        run: pytest
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
@@ -118,6 +124,12 @@ jobs:
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
           manylinux: musllinux_1_2
+      - name: Install pytest and built wheel
+        run: |
+          pip install pytest
+          pip install --no-index --find-links dist ellippy
+      - name: Run pytest
+        run: pytest
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
@@ -164,6 +176,12 @@ jobs:
           target: ${{ matrix.platform.target }}
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
+      - name: Install pytest and built wheel
+        run: |
+          pip install pytest
+          pip install --no-index --find-links dist ellippy
+      - name: Run pytest
+        run: pytest
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
@@ -209,6 +227,12 @@ jobs:
           target: ${{ matrix.platform.target }}
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
+      - name: Install pytest and built wheel
+        run: |
+          pip install pytest
+          pip install --no-index --find-links dist ellippy
+      - name: Run pytest
+        run: pytest
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
