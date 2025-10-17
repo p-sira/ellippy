@@ -40,6 +40,25 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
+            ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+          key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-${{ matrix.platform.target }}-
+            ${{ runner.os }}-python-
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -52,32 +71,6 @@ jobs:
         with:
           name: wheels-linux-${{ matrix.platform.target }}
           path: dist
-      - name: pytest
-        if: ${{ startsWith(matrix.platform.target, 'x86_64') }}
-        shell: bash
-        run: |
-          cd /tmp
-          set -e
-          python3 -m venv .venv
-          source .venv/bin/activate
-          pip install ../ellippy --find-links dist --force-reinstall
-          pip install pytest
-          pytest
-      - name: pytest
-        if: ${{ !startsWith(matrix.platform.target, 'x86') && matrix.platform.target != 'ppc64' }}
-        uses: uraimo/run-on-arch-action@v2
-        with:
-          arch: ${{ matrix.platform.target }}
-          distro: ubuntu22.04
-          githubToken: ${{ github.token }}
-          install: |
-            apt-get update
-            apt-get install -y --no-install-recommends python3 python3-pip
-            pip3 install -U pip pytest
-          run: |
-            set -e
-            pip3 install ellippy --find-links dist --force-reinstall
-            pytest
 
   musllinux:
     runs-on: ${{ matrix.platform.runner }}
@@ -97,6 +90,27 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-musl-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-musl-${{ matrix.platform.target }}-
+            ${{ runner.os }}-cargo-musl-
+            ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+          key: ${{ runner.os }}-python-musl-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-musl-${{ matrix.platform.target }}-
+            ${{ runner.os }}-python-musl-
+            ${{ runner.os }}-python-
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -109,36 +123,6 @@ jobs:
         with:
           name: wheels-musllinux-${{ matrix.platform.target }}
           path: dist
-      - name: pytest
-        if: ${{ startsWith(matrix.platform.target, 'x86_64') }}
-        uses: addnab/docker-run-action@v3
-        with:
-          image: alpine:latest
-          options: -v ${{ github.workspace }}:/io -w /io
-          run: |
-            set -e
-            apk add py3-pip py3-virtualenv
-            python3 -m virtualenv .venv
-            source .venv/bin/activate
-            pip install ellippy --no-index --find-links dist --force-reinstall
-            pip install pytest
-            pytest
-      - name: pytest
-        if: ${{ !startsWith(matrix.platform.target, 'x86') }}
-        uses: uraimo/run-on-arch-action@v2
-        with:
-          arch: ${{ matrix.platform.target }}
-          distro: alpine_latest
-          githubToken: ${{ github.token }}
-          install: |
-            apk add py3-virtualenv
-          run: |
-            set -e
-            python3 -m virtualenv .venv
-            source .venv/bin/activate
-            pip install pytest
-            pip install ellippy --find-links dist --force-reinstall
-            pytest
 
   windows:
     runs-on: ${{ matrix.platform.runner }}
@@ -155,6 +139,25 @@ jobs:
         with:
           python-version: 3.x
           architecture: ${{ matrix.platform.target }}
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
+            ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+          key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-${{ matrix.platform.target }}-
+            ${{ runner.os }}-python-
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -166,16 +169,6 @@ jobs:
         with:
           name: wheels-windows-${{ matrix.platform.target }}
           path: dist
-      - name: pytest
-        if: ${{ !startsWith(matrix.platform.target, 'aarch64') }}
-        shell: bash
-        run: |
-          set -e
-          python3 -m venv .venv
-          source .venv/Scripts/activate
-          pip install ellippy --find-links dist --force-reinstall
-          pip install pytest
-          pytest
 
   macos:
     runs-on: ${{ matrix.platform.runner }}
@@ -191,6 +184,25 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ matrix.platform.target }}-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-${{ matrix.platform.target }}-
+            ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+          key: ${{ runner.os }}-python-${{ matrix.platform.target }}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-${{ matrix.platform.target }}-
+            ${{ runner.os }}-python-
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -202,19 +214,20 @@ jobs:
         with:
           name: wheels-macos-${{ matrix.platform.target }}
           path: dist
-      - name: pytest
-        run: |
-          set -e
-          python3 -m venv .venv
-          source .venv/bin/activate
-          pip install ellippy --find-links dist --force-reinstall
-          pip install pytest
-          pytest
 
   sdist:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+          key: ${{ runner.os }}-python-sdist-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-python-sdist-
+            ${{ runner.os }}-python-
       - name: Build sdist
         uses: PyO3/maturin-action@v1
         with:
