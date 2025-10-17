@@ -5,7 +5,7 @@ from collections.abc import Callable
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
 
-from .ellippy_binding import (
+from ellippy.ellippy_binding import (
     ellipk,
     ellipe,
     ellippi,
@@ -42,7 +42,7 @@ def returnfloat_single(func: Callable, arg: ArrayLike) -> FloatArray | float:
         ans = func(asarray(arg))
     except RuntimeError as e:
         raise ValueError(e)
-    return ans.item() if isinstance(arg, float) else ans
+    return ans.item() if isinstance(arg, float | int) else ans
 
 
 def returnfloat(func: Callable, *args: ArrayLike) -> FloatArray | float:
@@ -51,4 +51,4 @@ def returnfloat(func: Callable, *args: ArrayLike) -> FloatArray | float:
         ans = func(*args_asarray)
     except RuntimeError as e:
         raise ValueError(e)
-    return ans.item() if isinstance(args[0], float) else ans
+    return ans.item() if isinstance(args[0], float | int) else ans
