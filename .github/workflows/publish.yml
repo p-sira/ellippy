@@ -47,15 +47,14 @@ jobs:
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
-          working-directory: python
           target: x86_64
-          args: --release --out dist --find-interpreter
+          args: --release
       - name: Pytest
         run: |
           set -e
           python3 -m venv .venv
           source .venv/bin/activate
-          pip install ellippy --find-links dist --force-reinstall
+          pip install python/ellippy
           pip install pytest
           pytest
   linux:
