@@ -66,6 +66,14 @@ jobs:
           args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
           manylinux: auto
+      - name: Install pytest and built wheel
+        if: ${{ matrix.platform.target == 'x86_64' || matrix.platform.target == 'aarch64' }}
+        run: |
+          pip install pytest
+          pip install dist/*.whl
+      - name: Run pytest
+        if: ${{ matrix.platform.target == 'x86_64' || matrix.platform.target == 'aarch64' }}
+        run: pytest
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
