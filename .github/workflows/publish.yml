@@ -56,10 +56,11 @@ jobs:
         if: ${{ startsWith(matrix.platform.target, 'x86_64') }}
         shell: bash
         run: |
+          cd /tmp
           set -e
           python3 -m venv .venv
           source .venv/bin/activate
-          pip install ellippy --find-links dist --force-reinstall
+          pip install ../ellippy --find-links dist --force-reinstall
           pip install pytest
           pytest
       - name: pytest
