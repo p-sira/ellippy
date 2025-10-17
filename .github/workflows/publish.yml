@@ -69,7 +69,7 @@ jobs:
       - name: Install pytest and built wheel
         run: |
           pip install pytest
-          pip install --no-index --find-links dist ellippy
+          pip install dist/*.whl
       - name: Run pytest
         run: pytest
       - name: Upload wheels
@@ -127,7 +127,7 @@ jobs:
       - name: Install pytest and built wheel
         run: |
           pip install pytest
-          pip install --no-index --find-links dist ellippy
+          pip install dist/*.whl
       - name: Run pytest
         run: pytest
       - name: Upload wheels
@@ -179,7 +179,7 @@ jobs:
       - name: Install pytest and built wheel
         run: |
           pip install pytest
-          pip install --no-index --find-links dist ellippy
+          pip install dist/*.whl
       - name: Run pytest
         run: pytest
       - name: Upload wheels
@@ -230,7 +230,7 @@ jobs:
       - name: Install pytest and built wheel
         run: |
           pip install pytest
-          pip install --no-index --find-links dist ellippy
+          pip install dist/*.whl
       - name: Run pytest
         run: pytest
       - name: Upload wheels
