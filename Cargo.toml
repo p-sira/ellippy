@@ -1,6 +1,6 @@
 [package]
 name = "ellippy_binding"
-version = "0.5.5"
+version = "0.5.6"
 edition = "2024"
 authors = ["Sira Pornsiriprasert <code@psira.me>"]
 description = "Rust-to-Python binding for EllipPy"
@@ -20,6 +20,6 @@ name = "ellippy_binding"
 crate-type = ["cdylib"]
 
 [dependencies]
-ellip-rayon = "0.5.5"
+ellip-rayon = "0.5.6"
 numpy = "0.26.0"
 pyo3 = { version = "0.26.0", features = ["extension-module"] }
