@@ -18,7 +18,38 @@ env:
   STRIP_FLAG: ${{ (startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch') && '--strip' || '' }}
 
 jobs:
+  test:
+    runs-on: ubuntu
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest maturin
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock', '**/Cargo.toml', 'src/**', 'python/**', 'pyproject.toml') }}
+          restore-keys: ${{ runner.os }}-cargo-
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+          key: ${{ runner.os }}-python-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: ${{ runner.os }}-python-
+      - name: Build 
+        run: maturin build --release --strip
+      - name: Pytest
+        run: pytest
   linux:
+    needs: test
     runs-on: ${{ matrix.platform.runner }}
     strategy:
       matrix:
@@ -73,6 +104,7 @@ jobs:
           path: dist
 
   musllinux:
+    needs: test
     runs-on: ${{ matrix.platform.runner }}
     strategy:
       matrix:
@@ -125,6 +157,7 @@ jobs:
           path: dist
 
   windows:
+    needs: test
     runs-on: ${{ matrix.platform.runner }}
     strategy:
       matrix:
@@ -171,6 +204,7 @@ jobs:
           path: dist
 
   macos:
+    needs: test
     runs-on: ${{ matrix.platform.runner }}
     strategy:
       matrix:
@@ -216,6 +250,7 @@ jobs:
           path: dist
 
   sdist:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
