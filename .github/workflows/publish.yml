@@ -44,10 +44,19 @@ jobs:
             ~/.cache/pip
           key: ${{ runner.os }}-python-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: ${{ runner.os }}-python-
-      - name: Build 
-        run: maturin develop --release
+      - name: Build wheels
+        uses: PyO3/maturin-action@v1
+        with:
+          target: ubuntu-22.04
+          args: --release --out dist --find-interpreter
       - name: Pytest
-        run: pytest
+        run: |
+          set -e
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install ellippy --find-links dist --force-reinstall
+          pip install pytest
+          pytest
   linux:
     needs: test
     runs-on: ${{ matrix.platform.runner }}
