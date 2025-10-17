@@ -45,7 +45,7 @@ jobs:
           key: ${{ runner.os }}-python-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: ${{ runner.os }}-python-
       - name: Build 
-        run: maturin build --release --strip
+        run: maturin develop --release
       - name: Pytest
         run: pytest
   linux:
