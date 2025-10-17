@@ -54,7 +54,7 @@ jobs:
           set -e
           python3 -m venv .venv
           source .venv/bin/activate
-          pip install python/ellippy
+          pip install ellippy
           pip install pytest
           pytest
   linux:
