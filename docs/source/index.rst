@@ -22,11 +22,14 @@ EllipPy Documentation
       <a href="https://p-sira.github.io/ellippy">
          <img src="https://img.shields.io/badge/Docs-github.io-blue" alt="Documentation">
       </a>
+      <a style="border-width:0" href="https://doi.org/10.21105/joss.09386">
+        <img src="https://joss.theoj.org/papers/10.21105/joss.09386/status.svg" alt="DOI badge" >
+      </a>
    </p>
 
 ----
 
-**EllipPy** is an elliptic integral library for Python, powered by Rust. All functions support numpy and parallelization. EllipPy features high accuracy and performance. For more details on testing and benchmarks, please refer to [Ellip](https://github.com/p-sira/ellip).
+**EllipPy** is an elliptic integral library for Python, powered by Rust. All functions support numpy and parallelization. EllipPy features high accuracy and performance. For more details on testing and benchmarks, please refer to `Ellip <https://github.com/p-sira/ellip>`_.
 
 Quick Start
 -----------
@@ -171,4 +174,27 @@ Miscellaneous Functions
       heuman_lambda
       jacobi_zeta
    
+|
+
+Citation
+========
+
+EllipPy is based on a Rust library, Ellip. The paper is published in the `Journal of Open Source Software <https://joss.theoj.org/papers/10.21105/joss.09386>`_. If EllipPy is helpful to your work, please consider citing Ellip::
+
+   Pornsiriprasert, S., (2026). Ellip: An Elliptic Integral Library for Rust. Journal of Open Source Software, 11(118), 9386, https://doi.org/10.21105/joss.09386
+
+Bibtex format:
+
+.. code-block:: bibtex
+
+   @article{Pornsiriprasert2026,
+      doi = {10.21105/joss.09386}, 
+      url = {https://doi.org/10.21105/joss.09386}, 
+      year = {2026}, 
+      publisher = {The Open Journal}, 
+      volume = {11}, number = {118}, pages = {9386},
+      author = {Pornsiriprasert, Sira}, 
+      title = {Ellip: An Elliptic Integral Library for Rust}, 
+      journal = {Journal of Open Source Software} } 
+
 |
