@@ -10,19 +10,19 @@ EllipPy Documentation
    </h1>
 
    <p align="center">
-      <a href="https://opensource.org/license/BSD-3-clause">
+      <a href="https://opensource.org/license/BSD-3-clause" style="text-decoration: none">
          <img src="https://img.shields.io/badge/License-BSD--3--Clause-brightgreen.svg" alt="License">
       </a>
-      <a href="https://pypi.org/project/ellippy">
+      <a href="https://pypi.org/project/ellippy" style="text-decoration: none">
          <img src="https://img.shields.io/pypi/v/ellippy?label=pypi%20package" alt="PyPI Package">
       </a>
-      <a href="https://pypi.org/project/ellippy">
+      <a href="https://pypi.org/project/ellippy" style="text-decoration: none">
          <img src="https://static.pepy.tech/personalized-badge/ellippy?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BRIGHTGREEN&left_text=downloads" alt="Total Downloads">
       </a>
-      <a href="https://p-sira.github.io/ellippy">
+      <a href="https://p-sira.github.io/ellippy" style="text-decoration: none">
          <img src="https://img.shields.io/badge/Docs-github.io-blue" alt="Documentation">
       </a>
-      <a style="border-width:0" href="https://doi.org/10.21105/joss.09386">
+      <a href="https://doi.org/10.21105/joss.09386" style="border-width:0 text-decoration: none">
         <img src="https://joss.theoj.org/papers/10.21105/joss.09386/status.svg" alt="DOI badge" >
       </a>
    </p>
