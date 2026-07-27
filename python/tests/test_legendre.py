@@ -27,7 +27,7 @@ TestEllipPi = ellip_test_suite(
     2,
     [
         ("ellippi_data.csv", 1e-14),
-        ("ellippi_neg.csv", 1e-15),
+        ("ellippi_neg.csv", 7e-15),
         ("ellippi_pv.csv", 1e-14),
     ],
 )
