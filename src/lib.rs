@@ -14,7 +14,10 @@ macro_rules! impl_py {
                 py: Python<'py>,
                 $($args: PyReadonlyArray1<f64>),*
             ) -> PyResult<Bound<'py, PyArray1<f64>>> {
-                let result = ellip_rayon::$func($($args.as_slice().expect("Non-contiguous array")),*);
+                $(
+                    let $args = $args.as_slice().expect("Non-contiguous array");
+                )*
+                let result = py.detach(|| ellip_rayon::$func($($args),*));
                 match result {
                     Ok(ans) => Ok(PyArray1::from_vec(py, ans)),
                     Err(e) => Err(PyRuntimeError::new_err(e)),
