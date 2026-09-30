@@ -24,7 +24,7 @@ def cel(kc: ArrayLike, p: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray |
         a, b (ArrayLike): Real-valued coefficient.
 
     Returns:
-        Scalar or `numpy.ndarray` with the same shape as `kc`.
+        Scalar or `numpy.ndarray` broadcast from inputs.
 
     Raises:
         ValueError: If kc = 0, p = 0, more than one argument is infinite, or inputs contain NaN.
@@ -103,10 +103,10 @@ def cel2(kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
         a, b (ArrayLike): Real-valued coefficient.
 
     Returns:
-        Scalar or `numpy.ndarray` with the same shape as `kc`.
+        Scalar or `numpy.ndarray` broadcast from inputs.
 
     Raises:
-        ValueError: If kc = 0, more than one arguments are infinite, or inputs contain NaN.
+        ValueError: If kc = 0, more than one argument is infinite, or inputs contain NaN.
 
     Graph:
         .. raw:: html
@@ -115,9 +115,9 @@ def cel2(kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
 
     Special Cases:
         - cel2(kc, 0, 0) = 0
-        - cel(kc, a, b) = 0 for \|kc\| = ∞
-        - cel(kc, a, b) = sign(a) ∞ for \|a\| = ∞
-        - cel(kc, a, b) = sign(b) ∞ for \|b\| = ∞
+        - cel2(kc, a, b) = 0 for \|kc\| = ∞
+        - cel2(kc, a, b) = sign(a) ∞ for \|a\| = ∞
+        - cel2(kc, a, b) = sign(b) ∞ for \|b\| = ∞
 
     Related Functions:
         - cel2(kc, a, b) = cel(kc, 1, a, b)
