@@ -52,9 +52,9 @@ dependencies = [
 
 [[package]]
 name = "ellip-rayon"
-version = "1.1.1"
+version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9747b6fa0bed0dccaa72407b8348e6a1b5079b4fcb4add3f2423021715f20139"
+checksum = "be69e885077ad3004b9a2803f9718f432f1edb0c394dc839251a70c7df2f7f62"
 dependencies = [
  "ellip",
  "itertools",
