@@ -66,6 +66,7 @@ dependencies = [
 name = "ellippy_binding"
 version = "1.1.2"
 dependencies = [
+ "ellip",
  "ellip-rayon",
  "numpy",
  "pyo3",
