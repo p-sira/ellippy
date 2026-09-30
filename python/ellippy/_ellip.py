@@ -6,7 +6,61 @@ from collections.abc import Callable
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
 
+from .ellippy_binding import (
+    cel,
+    cel1,
+    cel2,
+    el1,
+    el2,
+    el3,
+    ellipd,
+    ellipdinc,
+    ellipe,
+    ellipeinc,
+    ellipf,
+    ellipk,
+    ellippi,
+    ellippiinc,
+    ellippiinc_bulirsch,
+    elliprc,
+    elliprd,
+    elliprf,
+    elliprg,
+    elliprj,
+    heuman_lambda,
+    jacobi_zeta,
+)
+
 FloatArray = NDArray[np.float64]
+
+__all__ = [
+    "FloatArray",
+    "asarray",
+    "cel",
+    "cel1",
+    "cel2",
+    "el1",
+    "el2",
+    "el3",
+    "ellipd",
+    "ellipdinc",
+    "ellipe",
+    "ellipeinc",
+    "ellipf",
+    "ellipk",
+    "ellippi",
+    "ellippiinc",
+    "ellippiinc_bulirsch",
+    "elliprc",
+    "elliprd",
+    "elliprf",
+    "elliprg",
+    "elliprj",
+    "heuman_lambda",
+    "jacobi_zeta",
+    "returnfloat",
+    "returnfloat_single",
+]
 
 
 def asarray(x: ArrayLike) -> FloatArray:

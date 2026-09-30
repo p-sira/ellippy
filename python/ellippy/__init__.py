@@ -11,6 +11,11 @@ from .legendre import *
 from .misc import *
 
 __all__ = [  # noqa: RUF022
+    # Submodules
+    "bulirsch",
+    "carlson",
+    "legendre",
+    "misc",
     # Legendre complete
     "ellipk",
     "ellipe",
