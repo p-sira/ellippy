@@ -6,8 +6,9 @@ Elliptic integral functions in Bulirsch's form.
 """
 
 from numpy.typing import ArrayLike
-from . import _ellip
-from ._ellip import FloatArray, returnfloat, returnfloat_single
+
+from . import ellippy_binding
+from ._common import FloatArray, returnfloat, returnfloat_single
 
 
 def cel(kc: ArrayLike, p: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
@@ -23,7 +24,7 @@ def cel(kc: ArrayLike, p: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray |
         a, b (ArrayLike): Real-valued coefficient.
 
     Returns:
-        Scalar or `numpy.ndarray` with the same shape as `kc`.
+        Scalar or `numpy.ndarray` broadcast from inputs.
 
     Raises:
         ValueError: If kc = 0, p = 0, more than one argument is infinite, or inputs contain NaN.
@@ -52,7 +53,7 @@ def cel(kc: ArrayLike, p: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray |
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.cel, kc, p, a, b)
+    return returnfloat(ellippy_binding.cel, kc, p, a, b)
 
 
 def cel1(kc: ArrayLike) -> FloatArray | float:
@@ -87,7 +88,7 @@ def cel1(kc: ArrayLike) -> FloatArray | float:
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat_single(_ellip.cel1, kc)
+    return returnfloat_single(ellippy_binding.cel1, kc)
 
 
 def cel2(kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
@@ -102,10 +103,10 @@ def cel2(kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
         a, b (ArrayLike): Real-valued coefficient.
 
     Returns:
-        Scalar or `numpy.ndarray` with the same shape as `kc`.
+        Scalar or `numpy.ndarray` broadcast from inputs.
 
     Raises:
-        ValueError: If kc = 0, more than one arguments are infinite, or inputs contain NaN.
+        ValueError: If kc = 0, more than one argument is infinite, or inputs contain NaN.
 
     Graph:
         .. raw:: html
@@ -114,9 +115,9 @@ def cel2(kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
 
     Special Cases:
         - cel2(kc, 0, 0) = 0
-        - cel(kc, a, b) = 0 for \|kc\| = ∞
-        - cel(kc, a, b) = sign(a) ∞ for \|a\| = ∞
-        - cel(kc, a, b) = sign(b) ∞ for \|b\| = ∞
+        - cel2(kc, a, b) = 0 for \|kc\| = ∞
+        - cel2(kc, a, b) = sign(a) ∞ for \|a\| = ∞
+        - cel2(kc, a, b) = sign(b) ∞ for \|b\| = ∞
 
     Related Functions:
         - cel2(kc, a, b) = cel(kc, 1, a, b)
@@ -127,7 +128,7 @@ def cel2(kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.cel2, kc, a, b)
+    return returnfloat(ellippy_binding.cel2, kc, a, b)
 
 
 def el1(x: ArrayLike, kc: ArrayLike) -> FloatArray | float:
@@ -167,7 +168,7 @@ def el1(x: ArrayLike, kc: ArrayLike) -> FloatArray | float:
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.el1, x, kc)
+    return returnfloat(ellippy_binding.el1, x, kc)
 
 
 def el2(x: ArrayLike, kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
@@ -209,7 +210,7 @@ def el2(x: ArrayLike, kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray |
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.el2, x, kc, a, b)
+    return returnfloat(ellippy_binding.el2, x, kc, a, b)
 
 
 def el3(x: ArrayLike, kc: ArrayLike, p: ArrayLike) -> FloatArray | float:
@@ -249,4 +250,4 @@ def el3(x: ArrayLike, kc: ArrayLike, p: ArrayLike) -> FloatArray | float:
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.el3, x, kc, p)
+    return returnfloat(ellippy_binding.el3, x, kc, p)

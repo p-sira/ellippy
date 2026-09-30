@@ -6,8 +6,9 @@ Miscellaneous functions related to elliptic integrals.
 """
 
 from numpy.typing import ArrayLike
-from . import _ellip
-from ._ellip import FloatArray, returnfloat
+
+from . import ellippy_binding
+from ._common import FloatArray, returnfloat
 
 
 def jacobi_zeta(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
@@ -18,7 +19,7 @@ def jacobi_zeta(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         Z(\varphi, m) = E(\varphi, m) - \frac{E(m)\,F(\varphi, m)}{K(m)}
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ, m ≤ 1.
 
     Returns:
@@ -49,7 +50,7 @@ def jacobi_zeta(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         - Weisstein, Eric W. “Jacobi Zeta Function.” Wolfram Research, Inc. Accessed August 31, 2025. https://mathworld.wolfram.com/JacobiZetaFunction.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.jacobi_zeta, phi, m)
+    return returnfloat(ellippy_binding.jacobi_zeta, phi, m)
 
 
 def heuman_lambda(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
@@ -60,7 +61,7 @@ def heuman_lambda(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         \Lambda_0(\varphi, m) = \frac{F\!\left(\varphi, 1-m\right)}{K\!\left(1-m\right)} + \frac{2}{\pi} K(m)\, Z\!\left(\varphi, 1-m\right)
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ, 0 ≤ m < 1.
 
     Returns:
@@ -87,4 +88,4 @@ def heuman_lambda(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed August 30, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.heuman_lambda, phi, m)
+    return returnfloat(ellippy_binding.heuman_lambda, phi, m)

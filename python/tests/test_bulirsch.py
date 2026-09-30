@@ -2,6 +2,7 @@
 # Copyright 2025 Sira Pornsiriprasert <code@psira.me>
 
 from ellippy import *
+
 from tests.common_utils import ellip_test_suite
 
 TestCel = ellip_test_suite(

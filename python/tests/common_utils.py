@@ -1,9 +1,10 @@
 # EllipPy is licensed under The 3-Clause BSD, see LICENSE.
 # Copyright 2025 Sira Pornsiriprasert <code@psira.me>
 
-import pytest
-import numpy as np
 from pathlib import Path
+
+import numpy as np
+import pytest
 
 EPSILON = 2.2204460492503131e-16
 TEST_DATA_DIR = Path(__file__).parent / "data" / "wolfram"

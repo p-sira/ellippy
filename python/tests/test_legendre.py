@@ -2,6 +2,7 @@
 # Copyright 2025 Sira Pornsiriprasert <code@psira.me>
 
 from ellippy import *
+
 from tests.common_utils import ellip_test_suite
 
 TestEllipK = ellip_test_suite(
@@ -76,5 +77,15 @@ TestEllipDInc = ellip_test_suite(
     [
         ("ellipdinc_data.csv", 2e-15),
         ("ellipdinc_neg.csv", 1e-15),
+    ],
+)
+
+TestEllipPiIncBulirsch = ellip_test_suite(
+    ellippiinc_bulirsch,
+    3,
+    [
+        ("ellippiinc_data.csv", 5e-14),
+        ("ellippiinc_neg.csv", 1e-14),
+        ("ellippiinc_pv.csv", 5e-13),
     ],
 )

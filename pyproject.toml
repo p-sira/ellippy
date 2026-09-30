@@ -14,7 +14,6 @@ classifiers = [
 ]
 
 dependencies = [
-    "maturin>=1.11.5",
     "numpy>=2.2.6",
 ]
 
@@ -34,6 +33,7 @@ build-backend = "maturin"
 
 [dependency-groups]
 dev = [
+    "maturin>=1.11.5",
     "myst-parser>=4.0.1",
     "pydata-sphinx-theme>=0.16.1",
     "pytest>=8.4.2",
@@ -44,3 +44,8 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+

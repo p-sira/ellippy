@@ -6,8 +6,9 @@ Elliptic integral functions in Legendre's form.
 """
 
 from numpy.typing import ArrayLike
-from . import _ellip
-from ._ellip import FloatArray, returnfloat, returnfloat_single
+
+from . import ellippy_binding
+from ._common import FloatArray, returnfloat, returnfloat_single
 
 
 def ellipk(m: ArrayLike) -> FloatArray | float:
@@ -49,7 +50,7 @@ def ellipk(m: ArrayLike) -> FloatArray | float:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat_single(_ellip.ellipk, m)
+    return returnfloat_single(ellippy_binding.ellipk, m)
 
 
 def ellipe(m: ArrayLike) -> FloatArray | float:
@@ -93,7 +94,7 @@ def ellipe(m: ArrayLike) -> FloatArray | float:
         - The SciPy community. “Scipy.Special.Ellipe — SciPy v1.16.0 Manual.” Accessed July 28, 2025. https://docs.scipy.org/doc/scipy-1.16.0/reference/generated/scipy.special.ellipe.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat_single(_ellip.ellipe, m)
+    return returnfloat_single(ellippy_binding.ellipe, m)
 
 
 def ellippi(n: ArrayLike, m: ArrayLike) -> FloatArray | float:
@@ -142,7 +143,7 @@ def ellippi(n: ArrayLike, m: ArrayLike) -> FloatArray | float:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.ellippi, n, m)
+    return returnfloat(ellippy_binding.ellippi, n, m)
 
 
 def ellipd(m: ArrayLike) -> FloatArray | float:
@@ -184,7 +185,7 @@ def ellipd(m: ArrayLike) -> FloatArray | float:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat_single(_ellip.ellipd, m)
+    return returnfloat_single(ellippy_binding.ellipd, m)
 
 
 def ellipf(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
@@ -195,7 +196,7 @@ def ellipf(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         F(\varphi\,|\,m) = \int_0^{\varphi} \frac{\mathrm{d}\theta}{\sqrt{1 - m\,\sin^2\theta}}
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
@@ -228,7 +229,7 @@ def ellipf(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         - The MathWorks, Inc. “ellipticF.” Accessed April 21, 2025. https://www.mathworks.com/help/symbolic/sym.ellipticf.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.ellipf, phi, m)
+    return returnfloat(ellippy_binding.ellipf, phi, m)
 
 
 def ellipeinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
@@ -239,7 +240,7 @@ def ellipeinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         E(\varphi\,|\,m) = \int_0^{\varphi} \sqrt{1 - m\,\sin^2\theta}\,\mathrm{d}\theta
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
@@ -273,23 +274,23 @@ def ellipeinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         - The MathWorks, Inc. “ellipticE.” Accessed April 21, 2025. https://www.mathworks.com/help/symbolic/sym.elliptice.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.ellipeinc, phi, m)
+    return returnfloat(ellippy_binding.ellipeinc, phi, m)
 
 
-def ellippiinc(n: ArrayLike, phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
-    r"""Computes incomplete elliptic integral of the third kind Π(n; φ | m).
+def ellippiinc(phi: ArrayLike, n: ArrayLike, m: ArrayLike) -> FloatArray | float:
+    r"""Computes incomplete elliptic integral of the third kind Π(φ, n | m).
 
     .. math::
 
-        \Pi(n;\,\varphi\,|\,m) = \int_0^{\varphi} \frac{\mathrm{d}\theta}{\left(1 - n\,\sin^2\theta\right)\,\sqrt{1 - m\,\sin^2\theta}}
+        \Pi(\varphi,\,n\,|\,m) = \int_0^{\varphi} \frac{\mathrm{d}\theta}{\left(1 - n\,\sin^2\theta\right)\,\sqrt{1 - m\,\sin^2\theta}}
 
     Args:
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         n (ArrayLike): Characteristic. n ∈ ℝ, n ≠ 1.
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
-        Scalar or `numpy.ndarray` broadcast from `n`, `phi`, and `m`. Returns the Cauchy principal value if n sin²φ > 1.
+        Scalar or `numpy.ndarray` broadcast from `phi`, `n`, and `m`. Returns the Cauchy principal value if n sin²φ > 1.
 
     Raises:
         ValueError: If m sin²φ > 1, n sin²φ = 1, m ≥ 1 with φ not a multiple of π/2, or inputs contain NaN.
@@ -323,7 +324,7 @@ def ellippiinc(n: ArrayLike, phi: ArrayLike, m: ArrayLike) -> FloatArray | float
         - Wolfram Research. “EllipticPi.” 2022. https://reference.wolfram.com/language/ref/EllipticPi.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.ellippiinc, n, phi, m)
+    return returnfloat(ellippy_binding.ellippiinc, phi, n, m)
 
 
 def ellipdinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
@@ -334,7 +335,7 @@ def ellipdinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         D(\varphi\,|\,m) = \int_0^{\varphi} \frac{\sin^2\theta}{\sqrt{1 - m\,\sin^2\theta}}\,\mathrm{d}\theta
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
@@ -367,11 +368,11 @@ def ellipdinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.ellipdinc, phi, m)
+    return returnfloat(ellippy_binding.ellipdinc, phi, m)
 
 
 def ellippiinc_bulirsch(
-    n: ArrayLike, phi: ArrayLike, m: ArrayLike
+    phi: ArrayLike, n: ArrayLike, m: ArrayLike
 ) -> FloatArray | float:
     r"""Computes incomplete elliptic integral of the third kind using the Bulirsch algorithm.
 
@@ -380,12 +381,12 @@ def ellippiinc_bulirsch(
     to :func:`ellippiinc`.
 
     Args:
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         n (ArrayLike): Characteristic. n ∈ ℝ, n ≠ 1.
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
-        Scalar or `numpy.ndarray` broadcast from `n`, `phi`, and `m`.
+        Scalar or `numpy.ndarray` broadcast from `phi`, `n`, and `m`.
 
     Notes:
         See :func:`ellippiinc` for definitions, domains, and relationships.
@@ -394,4 +395,4 @@ def ellippiinc_bulirsch(
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.ellippiinc_bulirsch, n, phi, m)
+    return returnfloat(ellippy_binding.ellippiinc_bulirsch, phi, n, m)
