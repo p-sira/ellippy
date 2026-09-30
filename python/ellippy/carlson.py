@@ -44,9 +44,9 @@ def elliprf(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
         - el1(x, kc) = RF(r, r + m, r + 1)
 
     Notes:
-        The parameters x, y, and z are symmetric. This means swapping them does not change the 
+        The parameters x, y, and z are symmetric. This means swapping them does not change the
         value of the function. At most one of them can be zero.
-    
+
     References:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
@@ -67,7 +67,7 @@ def elliprg(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
 
     Returns:
         Scalar or `numpy.ndarray` broadcast from inputs.
-    
+
     Raises:
         ValueError: If any of x, y, or z is negative or infinite, or inputs contain NaN.
 
@@ -75,7 +75,7 @@ def elliprg(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
         .. raw:: html
 
             <iframe src="./../_static/figures/elliprg.html" width="100%" height="500px"></iframe>
-    
+
     Special Cases:
         - RG(x, x, x) = sqrt(x)
         - RG(0, y, y) = π/4 * sqrt(y)
@@ -88,9 +88,9 @@ def elliprg(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
             - 5(φ, m) = 2·RG(c - 1, c - m, c) - (c - 1)·RF(c - 1, c - m, c) - sqrt((c - 1) * (c - m) / c)
 
     Notes:
-        The parameters x, y, and z are symmetric. This means swapping them does not change the 
+        The parameters x, y, and z are symmetric. This means swapping them does not change the
         value of the function. At most one of them can be zero.
-    
+
     References:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
@@ -107,7 +107,7 @@ def elliprj(
     .. math::
 
         R_J(x, y, z, p) = \tfrac{3}{2} \int_0^{\infty} \frac{\mathrm{d}t}{(t+p)\,\sqrt{(t+x)(t+y)(t+z)}}
-    
+
     Args:
         x, y, z (ArrayLike): Real-valued parameter.
         p (ArrayLike): Real-valued parameter. p ∈ ℝ, p ≠ 0.
@@ -122,7 +122,7 @@ def elliprj(
         .. raw:: html
 
             <iframe src="./../_static/figures/elliprj.html" width="100%" height="500px"></iframe>
-    
+
     Special Cases:
         - RJ(x, x, x, x) = 1/(x sqrt(x))
         - RJ(x, y, z, z) = RD(x, y, z)
@@ -135,9 +135,9 @@ def elliprj(
         - With c = csc²φ and kc² = 1 - m: Π(φ, n, m) = n / 3 * RJ(c - 1, c - m, c, c - n) + F(φ, m)
 
     Notes:
-        The parameters x, y, and z are symmetric. This means swapping them does not change the 
+        The parameters x, y, and z are symmetric. This means swapping them does not change the
         value of the function. At most one of them can be zero.
-    
+
     References:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
@@ -152,7 +152,7 @@ def elliprc(x: ArrayLike, y: ArrayLike) -> FloatArray | float:
     .. math::
 
         R_C(x, y) = \tfrac{1}{2} \int_0^{\infty} \frac{\mathrm{d}t}{(t+y)\,\sqrt{t+x}}
-    
+
     Args:
         x, y (ArrayLike): Real-valued parameter.
 
@@ -166,7 +166,7 @@ def elliprc(x: ArrayLike, y: ArrayLike) -> FloatArray | float:
         .. raw:: html
 
             <iframe src="./../_static/figures/elliprc.html" width="100%" height="500px"></iframe>
-    
+
     Special Cases:
         - RC(x, x) = 1/sqrt(x)
         - RC(0, y) = π/(2*sqrt(y))
@@ -179,7 +179,7 @@ def elliprc(x: ArrayLike, y: ArrayLike) -> FloatArray | float:
 
     Notes:
         RC is a degenerate case of the RF. It is an elementary function rather than an elliptic integral.
-    
+
     References:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
@@ -195,7 +195,7 @@ def elliprd(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
     .. math::
 
         R_D(x, y, z) = \tfrac{3}{2} \int_0^{\infty} \frac{\mathrm{d}t}{(t+z)\,\sqrt{(t+x)(t+y)(t+z)}}
-    
+
     Args:
         x, y, z (ArrayLike): Real-valued parameter.
 
@@ -209,7 +209,7 @@ def elliprd(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
         .. raw:: html
 
             <iframe src="./../_static/figures/elliprd.html" width="100%" height="500px"></iframe>
-    
+
     Special Cases:
         - RD(x, x, x) = 1/(x sqrt(x))
         - RD(0, y, y) = 3/4 * π / (y sqrt(y))
@@ -222,7 +222,7 @@ def elliprd(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
 
     Notes:
         The parameters x and y (but not z!) are symmetric. This means swapping them does not change the value of the function. At most one of them can be zero.
-    
+
     References:
         - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.

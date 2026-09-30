@@ -19,7 +19,7 @@ def jacobi_zeta(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         Z(\varphi, m) = E(\varphi, m) - \frac{E(m)\,F(\varphi, m)}{K(m)}
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ, m ≤ 1.
 
     Returns:
@@ -61,7 +61,7 @@ def heuman_lambda(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         \Lambda_0(\varphi, m) = \frac{F\!\left(\varphi, 1-m\right)}{K\!\left(1-m\right)} + \frac{2}{\pi} K(m)\, Z\!\left(\varphi, 1-m\right)
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ, 0 ≤ m < 1.
 
     Returns:

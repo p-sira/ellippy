@@ -196,7 +196,7 @@ def ellipf(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         F(\varphi\,|\,m) = \int_0^{\varphi} \frac{\mathrm{d}\theta}{\sqrt{1 - m\,\sin^2\theta}}
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
@@ -240,7 +240,7 @@ def ellipeinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         E(\varphi\,|\,m) = \int_0^{\varphi} \sqrt{1 - m\,\sin^2\theta}\,\mathrm{d}\theta
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
@@ -285,7 +285,7 @@ def ellippiinc(phi: ArrayLike, n: ArrayLike, m: ArrayLike) -> FloatArray | float
         \Pi(\varphi,\,n\,|\,m) = \int_0^{\varphi} \frac{\mathrm{d}\theta}{\left(1 - n\,\sin^2\theta\right)\,\sqrt{1 - m\,\sin^2\theta}}
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         n (ArrayLike): Characteristic. n ∈ ℝ, n ≠ 1.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
@@ -335,7 +335,7 @@ def ellipdinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
         D(\varphi\,|\,m) = \int_0^{\varphi} \frac{\sin^2\theta}{\sqrt{1 - m\,\sin^2\theta}}\,\mathrm{d}\theta
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
@@ -381,7 +381,7 @@ def ellippiinc_bulirsch(
     to :func:`ellippiinc`.
 
     Args:
-        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ.
         n (ArrayLike): Characteristic. n ∈ ℝ, n ≠ 1.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
