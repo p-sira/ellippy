@@ -10,7 +10,7 @@ FloatArray = NDArray[np.float64]
 
 
 def asarray(x: ArrayLike) -> FloatArray:
-    return np.array(x, dtype=np.float64).flatten()
+    return np.ascontiguousarray(x, dtype=np.float64).ravel()
 
 
 def returnfloat_single(func: Callable, arg: ArrayLike) -> FloatArray | float:
