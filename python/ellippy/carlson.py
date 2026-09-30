@@ -7,8 +7,8 @@ Elliptic integral functions in Carlson's form.
 
 from numpy.typing import ArrayLike
 
-from . import _ellip
-from ._ellip import FloatArray, returnfloat
+from . import ellippy_binding
+from ._common import FloatArray, returnfloat
 
 
 def elliprf(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
@@ -52,7 +52,7 @@ def elliprf(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.elliprf, x, y, z)
+    return returnfloat(ellippy_binding.elliprf, x, y, z)
 
 
 def elliprg(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
@@ -96,7 +96,7 @@ def elliprg(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.elliprg, x, y, z)
+    return returnfloat(ellippy_binding.elliprg, x, y, z)
 
 
 def elliprj(
@@ -143,7 +143,7 @@ def elliprj(
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.elliprj, x, y, z, p)
+    return returnfloat(ellippy_binding.elliprj, x, y, z, p)
 
 
 def elliprc(x: ArrayLike, y: ArrayLike) -> FloatArray | float:
@@ -186,7 +186,7 @@ def elliprc(x: ArrayLike, y: ArrayLike) -> FloatArray | float:
         - The SciPy Community. “SciPy: Special Functions - Elliprc.” Accessed April 17, 2025. https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.elliprc.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.elliprc, x, y)
+    return returnfloat(ellippy_binding.elliprc, x, y)
 
 
 def elliprd(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
@@ -228,4 +228,4 @@ def elliprd(x: ArrayLike, y: ArrayLike, z: ArrayLike) -> FloatArray | float:
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(_ellip.elliprd, x, y, z) 
+    return returnfloat(ellippy_binding.elliprd, x, y, z)
