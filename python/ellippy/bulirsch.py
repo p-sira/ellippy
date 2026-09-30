@@ -6,6 +6,7 @@ Elliptic integral functions in Bulirsch's form.
 """
 
 from numpy.typing import ArrayLike
+
 from . import _ellip
 from ._ellip import FloatArray, returnfloat, returnfloat_single
 

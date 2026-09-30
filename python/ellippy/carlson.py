@@ -6,6 +6,7 @@ Elliptic integral functions in Carlson's form.
 """
 
 from numpy.typing import ArrayLike
+
 from . import _ellip
 from ._ellip import FloatArray, returnfloat
 

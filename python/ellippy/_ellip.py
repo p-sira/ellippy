@@ -2,33 +2,9 @@
 # Copyright 2025 Sira Pornsiriprasert <code@psira.me>
 
 from collections.abc import Callable
+
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
-
-from .ellippy_binding import (
-    ellipk,
-    ellipe,
-    ellippi,
-    ellipd,
-    ellipf,
-    ellipeinc,
-    ellippiinc,
-    ellipdinc,
-    ellippiinc_bulirsch,
-    cel,
-    cel1,
-    cel2,
-    el1,
-    el2,
-    el3,
-    elliprf,
-    elliprg,
-    elliprj,
-    elliprc,
-    elliprd,
-    jacobi_zeta,
-    heuman_lambda,
-)
 
 FloatArray = NDArray[np.float64]
 

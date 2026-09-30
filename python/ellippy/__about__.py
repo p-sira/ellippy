@@ -2,9 +2,10 @@
 # Copyright 2025 Sira Pornsiriprasert <code@psira.me>
 
 from __future__ import annotations
+
 from importlib import metadata as _metadata
 
-__all__ = ["__name__", "__version__", "__author__", "__license__", "__copyright__"]
+__all__ = ["__author__", "__copyright__", "__license__", "__name__", "__version__"]
 
 __name__ = "ellippy"
 __author__ = "Sira Pornsiriprasert"

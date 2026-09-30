@@ -3,15 +3,14 @@
 
 from __future__ import annotations
 
+from . import bulirsch, carlson, legendre, misc
 from .__about__ import *
-
-from . import legendre, bulirsch, carlson, misc
-from .legendre import *
 from .bulirsch import *
 from .carlson import *
+from .legendre import *
 from .misc import *
 
-__all__ = [
+__all__ = [  # noqa: RUF022
     # Legendre complete
     "ellipk",
     "ellipe",

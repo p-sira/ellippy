@@ -6,6 +6,7 @@ Miscellaneous functions related to elliptic integrals.
 """
 
 from numpy.typing import ArrayLike
+
 from . import _ellip
 from ._ellip import FloatArray, returnfloat
 
