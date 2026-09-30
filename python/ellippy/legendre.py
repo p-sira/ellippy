@@ -277,20 +277,20 @@ def ellipeinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
     return returnfloat(ellippy_binding.ellipeinc, phi, m)
 
 
-def ellippiinc(n: ArrayLike, phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
-    r"""Computes incomplete elliptic integral of the third kind Π(n; φ | m).
+def ellippiinc(phi: ArrayLike, n: ArrayLike, m: ArrayLike) -> FloatArray | float:
+    r"""Computes incomplete elliptic integral of the third kind Π(φ, n | m).
 
     .. math::
 
-        \Pi(n;\,\varphi\,|\,m) = \int_0^{\varphi} \frac{\mathrm{d}\theta}{\left(1 - n\,\sin^2\theta\right)\,\sqrt{1 - m\,\sin^2\theta}}
+        \Pi(\varphi,\,n\,|\,m) = \int_0^{\varphi} \frac{\mathrm{d}\theta}{\left(1 - n\,\sin^2\theta\right)\,\sqrt{1 - m\,\sin^2\theta}}
 
     Args:
-        n (ArrayLike): Characteristic. n ∈ ℝ, n ≠ 1.
         phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        n (ArrayLike): Characteristic. n ∈ ℝ, n ≠ 1.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
-        Scalar or `numpy.ndarray` broadcast from `n`, `phi`, and `m`. Returns the Cauchy principal value if n sin²φ > 1.
+        Scalar or `numpy.ndarray` broadcast from `phi`, `n`, and `m`. Returns the Cauchy principal value if n sin²φ > 1.
 
     Raises:
         ValueError: If m sin²φ > 1, n sin²φ = 1, m ≥ 1 with φ not a multiple of π/2, or inputs contain NaN.
@@ -324,7 +324,7 @@ def ellippiinc(n: ArrayLike, phi: ArrayLike, m: ArrayLike) -> FloatArray | float
         - Wolfram Research. “EllipticPi.” 2022. https://reference.wolfram.com/language/ref/EllipticPi.html.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(ellippy_binding.ellippiinc, n, phi, m)
+    return returnfloat(ellippy_binding.ellippiinc, phi, n, m)
 
 
 def ellipdinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
@@ -372,7 +372,7 @@ def ellipdinc(phi: ArrayLike, m: ArrayLike) -> FloatArray | float:
 
 
 def ellippiinc_bulirsch(
-    n: ArrayLike, phi: ArrayLike, m: ArrayLike
+    phi: ArrayLike, n: ArrayLike, m: ArrayLike
 ) -> FloatArray | float:
     r"""Computes incomplete elliptic integral of the third kind using the Bulirsch algorithm.
 
@@ -381,12 +381,12 @@ def ellippiinc_bulirsch(
     to :func:`ellippiinc`.
 
     Args:
-        n (ArrayLike): Characteristic. n ∈ ℝ, n ≠ 1.
         phi (ArrayLike): Amplitude angle (φ) in radians. φ ∈ ℝ. 
+        n (ArrayLike): Characteristic. n ∈ ℝ, n ≠ 1.
         m (ArrayLike): Elliptic parameter. m ∈ ℝ.
 
     Returns:
-        Scalar or `numpy.ndarray` broadcast from `n`, `phi`, and `m`.
+        Scalar or `numpy.ndarray` broadcast from `phi`, `n`, and `m`.
 
     Notes:
         See :func:`ellippiinc` for definitions, domains, and relationships.
@@ -395,4 +395,4 @@ def ellippiinc_bulirsch(
         - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
-    return returnfloat(ellippy_binding.ellippiinc_bulirsch, n, phi, m)
+    return returnfloat(ellippy_binding.ellippiinc_bulirsch, phi, n, m)
