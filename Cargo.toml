@@ -16,6 +16,7 @@ name = "ellippy_binding"
 crate-type = ["cdylib"]
 
 [dependencies]
+ellip = "1.1.3"
 ellip-rayon = "1.1.3"
 numpy = "0.26.0"
 pyo3 = { version = "0.26.0", features = ["extension-module"] }
