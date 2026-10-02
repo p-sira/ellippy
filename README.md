@@ -20,6 +20,7 @@
     <a href="https://doi.org/10.21105/joss.09386" style="border-width:0 text-decoration: none">
         <img src="https://joss.theoj.org/papers/10.21105/joss.09386/status.svg" alt="DOI badge" >
     </a>
+    <a href="https://app.codspeed.io/p-sira/ellippy?utm_source=badge"><img src="https://img.shields.io/endpoint?url=https://codspeed.io/badge.json" alt="CodSpeed"/></a>
 </p>
 
 **EllipPy** is an elliptic integral library for Python, powered by Rust. All functions support numpy and parallelization. EllipPy features high accuracy and performance. For more details on testing and benchmarks, please refer to [Ellip](https://github.com/p-sira/ellip).
