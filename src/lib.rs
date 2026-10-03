@@ -7,6 +7,21 @@ use numpy::{PyArray1, PyReadonlyArray1};
 use pyo3::{exceptions::PyRuntimeError, prelude::*};
 use rayon::prelude::*;
 
+/// Release the GIL only when it is worth it.
+///
+/// For a single-element call, the GIL-release/reacquire round-trip can cost
+/// more than the computation itself.  We skip `py.detach()` when `$n <= 1`
+/// (the threshold used by pymagba for per-point work of similar cost).
+macro_rules! detach_if_multi {
+    ($py:expr, $n:expr, $work:expr) => {
+        if $n <= 1 {
+            $work
+        } else {
+            $py.detach(|| $work)
+        }
+    };
+}
+
 macro_rules! impl_py {
     ($($func:ident : $scalar_func:ident : [$($args:ident),+] : $n_args:tt),* ; $($extra:ident),* $(,)?) => {
         $(
@@ -18,7 +33,9 @@ macro_rules! impl_py {
                 $(
                     let $args = $args.as_slice().expect("Non-contiguous array");
                 )*
-                let result = py.detach(|| ellip_rayon::$func($($args),*));
+                // Use the length of the first argument to decide.
+                let n = impl_py!(@first_len $($args),*);
+                let result = detach_if_multi!(py, n, ellip_rayon::$func($($args),*));
                 match result {
                     Ok(ans) => Ok(PyArray1::from_vec(py, ans)),
                     Err(e) => Err(PyRuntimeError::new_err(e)),
@@ -36,7 +53,7 @@ macro_rules! impl_py {
             }
         )*
 
-        #[pymodule]
+        #[pymodule(gil_used = false)]
         #[pyo3(name="ellippy_binding")]
         fn ellippy_binding(m: &Bound<'_, PyModule>) -> PyResult<()> {
             $(
@@ -50,6 +67,9 @@ macro_rules! impl_py {
         }
 
     };
+
+    // Helper: extract the identifier of the first argument.
+    (@first_len $head:ident $(, $tail:ident)*) => { $head.len() };
 }
 
 // `cel3` and `ellipke` are provided by ellip 1.2.0 but are not exposed by
@@ -69,9 +89,10 @@ pub fn cel3<'py>(
             "cel3: All arguments must have the same length.",
         ));
     }
+    let n = kc.len();
     const THRESHOLD: usize = 600;
-    let result = py.detach(|| {
-        if kc.len() < THRESHOLD {
+    let result = detach_if_multi!(py, n, {
+        if n < THRESHOLD {
             kc.iter()
                 .zip(p.iter())
                 .map(|(&kc, &p)| ellip::cel3(kc, p))
@@ -103,9 +124,10 @@ pub fn ellipke<'py>(
     m: PyReadonlyArray1<f64>,
 ) -> PyResult<(Bound<'py, PyArray1<f64>>, Bound<'py, PyArray1<f64>>)> {
     let m = m.as_slice().expect("Non-contiguous array");
+    let n = m.len();
     const THRESHOLD: usize = 1000;
-    let result = py.detach(|| {
-        if m.len() < THRESHOLD {
+    let result = detach_if_multi!(py, n, {
+        if n < THRESHOLD {
             m.iter()
                 .map(|&m| ellip::ellipke(m))
                 .collect::<Result<Vec<(f64, f64)>, _>>()
