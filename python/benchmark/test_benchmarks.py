@@ -4,9 +4,11 @@
 """
 Performance benchmarks for EllipPy, run with pytest-codspeed.
 
-Each function is benchmarked twice:
+Each function is benchmarked three times:
 - with scalar inputs, which goes through the scalar fast path,
-- with numpy array inputs, which goes through the vectorized (rayon) path.
+- with single-element numpy arrays, which goes through the array binding
+  without releasing the GIL (dominated by FFI/dispatch overhead),
+- with large numpy array inputs, which goes through the vectorized (rayon) path.
 
 Run locally with:
     uv run pytest python/benchmark --codspeed
@@ -89,6 +91,15 @@ def test_scalar(benchmark, name, scalar_args, array_args):
 
 
 @pytest.mark.parametrize("name,scalar_args,array_args", CASES, ids=_IDS)
+def test_array_single(benchmark, name, scalar_args, array_args):
+    func = getattr(ellippy, name)
+    single_args = tuple(np.array([arg], dtype=np.float64) for arg in scalar_args)
+    result = benchmark(func, *single_args)
+    assert result.shape == (1,)
+    assert np.all(np.isfinite(result))
+
+
+@pytest.mark.parametrize("name,scalar_args,array_args", CASES, ids=_IDS)
 def test_array(benchmark, name, scalar_args, array_args):
     func = getattr(ellippy, name)
     result = benchmark(func, *array_args)
@@ -100,6 +111,14 @@ def test_ellipke_scalar(benchmark):
     k, e = benchmark(ellippy.ellipke, 0.5)
     assert np.isfinite(k)
     assert np.isfinite(e)
+
+
+def test_ellipke_array_single(benchmark):
+    k, e = benchmark(ellippy.ellipke, np.array([0.5]))
+    assert k.shape == (1,)
+    assert e.shape == (1,)
+    assert np.all(np.isfinite(k))
+    assert np.all(np.isfinite(e))
 
 
 def test_ellipke_array(benchmark):
