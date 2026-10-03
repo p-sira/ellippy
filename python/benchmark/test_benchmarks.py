@@ -12,9 +12,19 @@ Run locally with:
     uv run pytest python/benchmark --codspeed
 """
 
-import ellippy
-import numpy as np
-import pytest
+import os
+
+# Pin the rayon pool to a single worker thread. With several workers, rayon's
+# work stealing splits the input differently on every call, so the measured
+# instruction count of the array benchmarks fluctuates by up to ~40% between
+# runs of identical code. A single worker keeps the parallel code path
+# exercised while making the measurement deterministic. Must be set before
+# the rayon global pool is first used.
+os.environ.setdefault("RAYON_NUM_THREADS", "1")
+
+import ellippy  # noqa: E402
+import numpy as np  # noqa: E402
+import pytest  # noqa: E402
 
 ARRAY_SIZE = 1_000
 
