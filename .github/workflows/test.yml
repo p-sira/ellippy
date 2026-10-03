@@ -68,12 +68,11 @@ jobs:
         with:
           path: |
             ~/.cache/uv
+            .venv
           key: ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('uv.lock') }}
       - name: Install dependencies
         run: |
-          if (Test-Path .venv) { Remove-Item -Recurse -Force .venv }
-          uv sync --reinstall --dev
-        shell: pwsh
+          uv sync --dev
       - name: Build package
         run: uv run maturin develop
       - name: Run pytest
