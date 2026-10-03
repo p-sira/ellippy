@@ -42,6 +42,15 @@ checksum = "252afb9ae5eaa683babdc6a068b3f5726eb19e05070c731f9b2a23a7c3e8ed34"
 [[package]]
 name = "ellip"
 version = "1.2.0"
+dependencies = [
+ "num-lazy",
+ "num-traits",
+ "numeric_literals",
+]
+
+[[package]]
+name = "ellip"
+version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "062a5f856c43cf2fd7a6900cce3019d46fbd42b200dac9f6367949ffa6f27e78"
 dependencies = [
@@ -53,10 +62,8 @@ dependencies = [
 [[package]]
 name = "ellip-rayon"
 version = "1.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "44e9394485e75d312f9901e43525bcdaaba7aa717b2a78c5a2eec1ef0b3e70f1"
 dependencies = [
- "ellip",
+ "ellip 1.2.0",
  "itertools",
  "num-traits",
  "rayon",
@@ -66,7 +73,7 @@ dependencies = [
 name = "ellippy_binding"
 version = "1.2.0"
 dependencies = [
- "ellip",
+ "ellip 1.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ellip-rayon",
  "numpy",
  "pyo3",
