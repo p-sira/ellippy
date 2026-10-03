@@ -16,18 +16,6 @@ use pyo3::{exceptions::PyRuntimeError, prelude::*};
 /// Dipole, whose per-point cost (elliptic integrals) is comparable to ours.
 const DETACH_THRESHOLD: usize = 32;
 
-/// FFI-aware parallelism threshold for `cel3`.
-///
-/// `ellip-rayon`'s internal threshold is calibrated at the pure-Rust level
-/// (~8k elements).  The `PyArray1::from_vec` O(n) copy on every return path
-/// shifts the actual break-even upward to ~10k elements (+25%).  Because
-/// that gap exceeds our 20% tolerance band we override it here: for
-/// `n <= CEL3_FFI_THRESHOLD` we call the sequential path directly, bypassing
-/// rayon entirely.
-///
-/// Determined by `cargo run --bin bench_threshold --release`.
-const CEL3_FFI_THRESHOLD: usize = 10_000;
-
 macro_rules! detach_if_multi {
     ($py:expr, $n:expr, $work:expr) => {
         if $n <= DETACH_THRESHOLD {
@@ -39,28 +27,10 @@ macro_rules! detach_if_multi {
 }
 
 macro_rules! impl_py {
-    // -----------------------------------------------------------------------
-    // Main arm.
-    //
-    // Three semicolon-separated sections:
-    //
-    //   rayon { func:scalar:[args], ... }
-    //     Functions in ellip-rayon returning Vec<f64>; parallelism is
-    //     delegated to ellip-rayon's internal threshold.
-    //
-    //   tuple { func:scalar:[args], ... }
-    //     Functions in ellip-rayon returning Vec<(f64, f64)>; the result
-    //     is unzipped into two PyArray1s.  Currently: ellipke only.
-    //
-    //   hand { func, ... }
-    //     Hand-written #[pyfunction]s defined outside this macro that still
-    //     need to be registered in the module (e.g. functions with a custom
-    //     FFI threshold override).
-    // -----------------------------------------------------------------------
     (
         $($rfunc:ident : $rscalar:ident : [$($rargs:ident),+]),* $(,)? ;
-        $($tfunc:ident : $tscalar:ident : [$($targs:ident),+]),* $(,)? ;
-        $($hfunc:ident),* $(,)?
+        @return_tuple
+        $($tfunc:ident : $tscalar:ident : [$($targs:ident),+]),* $(,)?
     ) => {
         // --- Rayon-backed, single Vec<f64> return --------------------------
         $(
@@ -126,10 +96,6 @@ macro_rules! impl_py {
                 m.add_function(wrap_pyfunction!($tfunc, m)?)?;
                 m.add_function(wrap_pyfunction!($tscalar, m)?)?;
             )*
-            // Hand-written functions (FFI threshold overrides, etc.)
-            $(
-                m.add_function(wrap_pyfunction!($hfunc, m)?)?;
-            )*
             Ok(())
         }
     };
@@ -138,44 +104,8 @@ macro_rules! impl_py {
     (@first_len $head:ident $(, $tail:ident)*) => { $head.len() };
 }
 
-// ---------------------------------------------------------------------------
-// cel3: hand-written to apply CEL3_FFI_THRESHOLD instead of ellip-rayon's
-// internal pure-Rust threshold.
-// ---------------------------------------------------------------------------
-
-#[pyfunction]
-pub fn cel3<'py>(
-    py: Python<'py>,
-    kc: PyReadonlyArray1<f64>,
-    p: PyReadonlyArray1<f64>,
-) -> PyResult<Bound<'py, PyArray1<f64>>> {
-    let kc = kc.as_slice().expect("Non-contiguous array");
-    let p = p.as_slice().expect("Non-contiguous array");
-    let n = kc.len();
-    let result = if n <= CEL3_FFI_THRESHOLD {
-        // Sequential: rayon overhead + FFI copy not worth it at this size.
-        kc.iter()
-            .zip(p.iter())
-            .map(|(&kc, &p)| ellip::cel3(kc, p))
-            .collect::<Result<Vec<f64>, _>>()
-            .map_err(PyRuntimeError::new_err)
-    } else {
-        detach_if_multi!(py, n, ellip_rayon::cel3(kc, p))
-            .map_err(PyRuntimeError::new_err)
-    };
-    result.map(|ans| PyArray1::from_vec(py, ans))
-}
-
-#[pyfunction]
-pub fn cel3_scalar(kc: f64, p: f64) -> PyResult<f64> {
-    match ellip::cel3(kc, p) {
-        Ok(ans) => Ok(ans),
-        Err(e) => Err(PyRuntimeError::new_err(e)),
-    }
-}
-
+// Thresholds are tuned per-function in vendor/ellip/ellip-rayon for FFI overhead.
 impl_py!(
-    // Rayon-backed, single Vec<f64> return
     ellipk             : ellipk_scalar             : [m],
     ellipe             : ellipe_scalar             : [m],
     ellipf             : ellipf_scalar             : [phi, m],
@@ -188,7 +118,7 @@ impl_py!(
     cel                : cel_scalar                : [kc, p, a, b],
     cel1               : cel1_scalar               : [kc],
     cel2               : cel2_scalar               : [kc, a, b],
-    // cel3 is hand-written above (CEL3_FFI_THRESHOLD override)
+    cel3               : cel3_scalar               : [kc, p],
     el1                : el1_scalar                : [x, kc],
     el2                : el2_scalar                : [x, kc, a, b],
     el3                : el3_scalar                : [x, kc, p],
@@ -200,9 +130,6 @@ impl_py!(
     jacobi_zeta        : jacobi_zeta_scalar        : [phi, m],
     heuman_lambda      : heuman_lambda_scalar      : [phi, m]
     ;
-    // Rayon-backed, (Vec<f64>, Vec<f64>) tuple return
+    @return_tuple
     ellipke            : ellipke_scalar            : [m]
-    ;
-    // Hand-written (FFI threshold overrides) — registered but not generated by macro
-    cel3, cel3_scalar
 );
