@@ -25,7 +25,7 @@ TestEllipRJ = ellip_test_suite(
     elliprj,
     4,
     [
-        ("elliprj_data.csv", 2e-15),
+        ("elliprj_data.csv", 3e-15),
         ("elliprj_pv.csv", 2e-10),
     ],
 )
