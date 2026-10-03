@@ -95,6 +95,7 @@ Complete Elliptic Integrals
    
    ellipk
    ellipe
+   ellipke
    ellippi
    ellipd
 
@@ -131,6 +132,7 @@ Bulirsch's Integrals
       cel
       cel1
       cel2
+      cel3
       el1
       el2
       el3

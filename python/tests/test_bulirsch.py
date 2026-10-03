@@ -1,7 +1,7 @@
 # EllipPy is licensed under The 3-Clause BSD, see LICENSE.
 # Copyright 2025 Sira Pornsiriprasert <code@psira.me>
 
-from ellippy import *
+from ellippy.bulirsch import cel, cel1, cel2, cel3, el1, el2, el3
 
 from tests.common_utils import ellip_test_suite
 
@@ -27,6 +27,15 @@ TestCel2 = ellip_test_suite(
     3,
     [
         ("cel2_data.csv", 1e-15),
+    ],
+)
+
+TestCel3 = ellip_test_suite(
+    cel3,
+    2,
+    [
+        ("cel3_data.csv", 1e-14),
+        ("cel3_pv.csv", 1e-14),
     ],
 )
 

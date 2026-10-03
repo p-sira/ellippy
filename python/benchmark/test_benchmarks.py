@@ -4,18 +4,29 @@
 """
 Performance benchmarks for EllipPy, run with pytest-codspeed.
 
-Each function is benchmarked twice:
+Each function is benchmarked three times:
 - with scalar inputs, which goes through the scalar fast path,
-- with numpy array inputs, which goes through the vectorized (rayon) path.
+- with single-element numpy arrays, which goes through the array binding
+  without releasing the GIL (dominated by FFI/dispatch overhead),
+- with large numpy array inputs, which goes through the vectorized (rayon) path.
 
 Run locally with:
     uv run pytest python/benchmark --codspeed
 """
 
-import numpy as np
-import pytest
+import os
 
-import ellippy
+# Pin the rayon pool to a single worker thread. With several workers, rayon's
+# work stealing splits the input differently on every call, so the measured
+# instruction count of the array benchmarks fluctuates by up to ~40% between
+# runs of identical code. A single worker keeps the parallel code path
+# exercised while making the measurement deterministic. Must be set before
+# the rayon global pool is first used.
+os.environ.setdefault("RAYON_NUM_THREADS", "1")
+
+import ellippy  # noqa: E402
+import numpy as np  # noqa: E402
+import pytest  # noqa: E402
 
 ARRAY_SIZE = 1_000
 
@@ -42,6 +53,7 @@ CASES = [
     # Legendre complete
     ("ellipk", (0.5,), (_m,)),
     ("ellipe", (0.5,), (_m,)),
+    ("ellipke", (0.5,), (_m,)),
     ("ellippi", (0.3, 0.5), (_n, _m)),
     ("ellipd", (0.5,), (_m,)),
     # Legendre incomplete
@@ -54,6 +66,7 @@ CASES = [
     ("cel", (0.5, 1.2, 1.0, 0.7), (_kc, _p, _a, _b)),
     ("cel1", (0.5,), (_kc,)),
     ("cel2", (0.5, 1.0, 0.7), (_kc, _a, _b)),
+    ("cel3", (0.5, 1.2), (_kc, _p)),
     ("el1", (1.2, 0.5), (_x, _kc)),
     ("el2", (1.2, 0.5, 1.0, 0.7), (_x, _kc, _a, _b)),
     ("el3", (1.2, 0.5, 1.2), (_x, _kc, _p)),
@@ -71,16 +84,33 @@ CASES = [
 _IDS = [name for name, _, _ in CASES]
 
 
+def _outputs(result):
+    """Normalize a result to a tuple of outputs (ellipke returns (K, E))."""
+    return result if isinstance(result, tuple) else (result,)
+
+
 @pytest.mark.parametrize("name,scalar_args,array_args", CASES, ids=_IDS)
 def test_scalar(benchmark, name, scalar_args, array_args):
     func = getattr(ellippy, name)
     result = benchmark(func, *scalar_args)
-    assert np.isfinite(result)
+    for out in _outputs(result):
+        assert np.isfinite(out)
+
+
+@pytest.mark.parametrize("name,scalar_args,array_args", CASES, ids=_IDS)
+def test_array_single(benchmark, name, scalar_args, array_args):
+    func = getattr(ellippy, name)
+    single_args = tuple(np.array([arg], dtype=np.float64) for arg in scalar_args)
+    result = benchmark(func, *single_args)
+    for out in _outputs(result):
+        assert out.shape == (1,)
+        assert np.all(np.isfinite(out))
 
 
 @pytest.mark.parametrize("name,scalar_args,array_args", CASES, ids=_IDS)
 def test_array(benchmark, name, scalar_args, array_args):
     func = getattr(ellippy, name)
     result = benchmark(func, *array_args)
-    assert result.shape == (ARRAY_SIZE,)
-    assert np.all(np.isfinite(result))
+    for out in _outputs(result):
+        assert out.shape == (ARRAY_SIZE,)
+        assert np.all(np.isfinite(out))

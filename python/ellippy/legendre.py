@@ -8,7 +8,7 @@ Elliptic integral functions in Legendre's form.
 from numpy.typing import ArrayLike
 
 from . import ellippy_binding
-from ._common import FloatArray, returnfloat, returnfloat_single
+from ._common import FloatArray, returnfloat, returnfloat_single, returntuple
 
 
 def ellipk(m: ArrayLike) -> FloatArray | float:
@@ -95,6 +95,41 @@ def ellipe(m: ArrayLike) -> FloatArray | float:
         - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.
     """
     return returnfloat_single(ellippy_binding.ellipe, m)
+
+
+def ellipke(m: ArrayLike) -> tuple[FloatArray, FloatArray] | tuple[float, float]:
+    r"""Computes complete elliptic integrals of the first and second kind K(m) and E(m) simultaneously.
+
+    .. math::
+
+        \mathrm{ellipke}(m) = \left(K(m),\, E(m)\right)
+
+    Args:
+        m (ArrayLike): Elliptic parameter. m ∈ ℝ, m ≤ 1.
+
+    Returns:
+        tuple[FloatArray, FloatArray] | tuple[float, float]: A ``(K, E)`` pair of scalars or `numpy.ndarray` with the same shape as `m`.
+
+    Raises:
+        ValueError: If m > 1 or inputs contain NaN.
+
+    Special Cases:
+        - ellipke(0) = (π/2, π/2)
+        - ellipke(1) = (∞, 1)
+        - ellipke(-∞) = (0, ∞)
+
+    Related Functions:
+        - K(m) = ellipk(m)
+        - E(m) = ellipe(m)
+
+    Notes:
+        - This computes K(m) and E(m) simultaneously, which is faster than computing them separately.
+        - The elliptic modulus k is frequently used instead of the parameter m, where k² = m.
+
+    References:
+        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 1.2.0. Released October 2, 2026. https://docs.rs/ellip/1.2.0/ellip/index.html.
+    """
+    return returntuple(ellippy_binding.ellipke, m)
 
 
 def ellippi(n: ArrayLike, m: ArrayLike) -> FloatArray | float:
