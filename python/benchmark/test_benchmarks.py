@@ -53,6 +53,7 @@ CASES = [
     # Legendre complete
     ("ellipk", (0.5,), (_m,)),
     ("ellipe", (0.5,), (_m,)),
+    ("ellipke", (0.5,), (_m,)),
     ("ellippi", (0.3, 0.5), (_n, _m)),
     ("ellipd", (0.5,), (_m,)),
     # Legendre incomplete
@@ -83,11 +84,17 @@ CASES = [
 _IDS = [name for name, _, _ in CASES]
 
 
+def _outputs(result):
+    """Normalize a result to a tuple of outputs (ellipke returns (K, E))."""
+    return result if isinstance(result, tuple) else (result,)
+
+
 @pytest.mark.parametrize("name,scalar_args,array_args", CASES, ids=_IDS)
 def test_scalar(benchmark, name, scalar_args, array_args):
     func = getattr(ellippy, name)
     result = benchmark(func, *scalar_args)
-    assert np.isfinite(result)
+    for out in _outputs(result):
+        assert np.isfinite(out)
 
 
 @pytest.mark.parametrize("name,scalar_args,array_args", CASES, ids=_IDS)
@@ -95,35 +102,15 @@ def test_array_single(benchmark, name, scalar_args, array_args):
     func = getattr(ellippy, name)
     single_args = tuple(np.array([arg], dtype=np.float64) for arg in scalar_args)
     result = benchmark(func, *single_args)
-    assert result.shape == (1,)
-    assert np.all(np.isfinite(result))
+    for out in _outputs(result):
+        assert out.shape == (1,)
+        assert np.all(np.isfinite(out))
 
 
 @pytest.mark.parametrize("name,scalar_args,array_args", CASES, ids=_IDS)
 def test_array(benchmark, name, scalar_args, array_args):
     func = getattr(ellippy, name)
     result = benchmark(func, *array_args)
-    assert result.shape == (ARRAY_SIZE,)
-    assert np.all(np.isfinite(result))
-
-
-def test_ellipke_scalar(benchmark):
-    k, e = benchmark(ellippy.ellipke, 0.5)
-    assert np.isfinite(k)
-    assert np.isfinite(e)
-
-
-def test_ellipke_array_single(benchmark):
-    k, e = benchmark(ellippy.ellipke, np.array([0.5]))
-    assert k.shape == (1,)
-    assert e.shape == (1,)
-    assert np.all(np.isfinite(k))
-    assert np.all(np.isfinite(e))
-
-
-def test_ellipke_array(benchmark):
-    k, e = benchmark(ellippy.ellipke, _m)
-    assert k.shape == (ARRAY_SIZE,)
-    assert e.shape == (ARRAY_SIZE,)
-    assert np.all(np.isfinite(k))
-    assert np.all(np.isfinite(e))
+    for out in _outputs(result):
+        assert out.shape == (ARRAY_SIZE,)
+        assert np.all(np.isfinite(out))
