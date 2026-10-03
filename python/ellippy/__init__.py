@@ -19,6 +19,7 @@ __all__ = [  # noqa: RUF022
     # Legendre complete
     "ellipk",
     "ellipe",
+    "ellipke",
     "ellippi",
     "ellipd",
     # Legendre incomplete
@@ -31,6 +32,7 @@ __all__ = [  # noqa: RUF022
     "cel",
     "cel1",
     "cel2",
+    "cel3",
     "el1",
     "el2",
     "el3",

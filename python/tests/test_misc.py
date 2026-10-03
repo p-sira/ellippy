@@ -1,7 +1,7 @@
 # EllipPy is licensed under The 3-Clause BSD, see LICENSE.
 # Copyright 2025 Sira Pornsiriprasert <code@psira.me>
 
-from ellippy import *
+from ellippy.misc import heuman_lambda, jacobi_zeta
 
 from tests.common_utils import ellip_test_suite
 

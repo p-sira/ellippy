@@ -60,6 +60,7 @@ uv add ellippy
 - Legendre's complete integrals
     - `ellipk`: Complete elliptic integral of the first kind (K).
     - `ellipe`: Complete elliptic integral of the second kind (E).
+    - `ellipke`: Simultaneous computation of the complete elliptic integrals of the first and second kind (K and E).
     - `ellippi`: Complete elliptic integral of the third kind (Π).
     - `ellipd`: Complete elliptic integral of Legendre's type (D).
 - Legendre's incomplete integrals
@@ -71,6 +72,7 @@ uv add ellippy
     - `cel`: General complete elliptic integral in Bulirsch's form.
     - `cel1`: Complete elliptic integral of the first kind in Bulirsch's form.
     - `cel2`: Complete elliptic integral of the second kind in Bulirsch's form.
+    - `cel3`: Complete elliptic integral of the third kind in Bulirsch's form.
     - `el1`: Incomplete elliptic integral of the first kind in Bulirsch's form.
     - `el2`: Incomplete elliptic integral of the second kind in Bulirsch's form.
     - `el3`: Incomplete elliptic integral of the third kind in Bulirsch's form.

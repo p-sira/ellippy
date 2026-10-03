@@ -12,10 +12,19 @@ Run locally with:
     uv run pytest python/benchmark --codspeed
 """
 
-import numpy as np
-import pytest
+import os
 
-import ellippy
+# Pin the rayon pool to a single worker thread. With several workers, rayon's
+# work stealing splits the input differently on every call, so the measured
+# instruction count of the array benchmarks fluctuates by up to ~40% between
+# runs of identical code. A single worker keeps the parallel code path
+# exercised while making the measurement deterministic. Must be set before
+# the rayon global pool is first used.
+os.environ.setdefault("RAYON_NUM_THREADS", "1")
+
+import ellippy  # noqa: E402
+import numpy as np  # noqa: E402
+import pytest  # noqa: E402
 
 ARRAY_SIZE = 1_000
 
@@ -54,6 +63,7 @@ CASES = [
     ("cel", (0.5, 1.2, 1.0, 0.7), (_kc, _p, _a, _b)),
     ("cel1", (0.5,), (_kc,)),
     ("cel2", (0.5, 1.0, 0.7), (_kc, _a, _b)),
+    ("cel3", (0.5, 1.2), (_kc, _p)),
     ("el1", (1.2, 0.5), (_x, _kc)),
     ("el2", (1.2, 0.5, 1.0, 0.7), (_x, _kc, _a, _b)),
     ("el3", (1.2, 0.5, 1.2), (_x, _kc, _p)),
@@ -84,3 +94,17 @@ def test_array(benchmark, name, scalar_args, array_args):
     result = benchmark(func, *array_args)
     assert result.shape == (ARRAY_SIZE,)
     assert np.all(np.isfinite(result))
+
+
+def test_ellipke_scalar(benchmark):
+    k, e = benchmark(ellippy.ellipke, 0.5)
+    assert np.isfinite(k)
+    assert np.isfinite(e)
+
+
+def test_ellipke_array(benchmark):
+    k, e = benchmark(ellippy.ellipke, _m)
+    assert k.shape == (ARRAY_SIZE,)
+    assert e.shape == (ARRAY_SIZE,)
+    assert np.all(np.isfinite(k))
+    assert np.all(np.isfinite(e))

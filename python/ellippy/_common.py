@@ -13,6 +13,7 @@ _SCALAR_FUNCS: dict[Callable, Callable] = {}
 for _name in [
     "ellipk",
     "ellipe",
+    "ellipke",
     "ellipf",
     "ellipeinc",
     "ellippi",
@@ -23,6 +24,7 @@ for _name in [
     "cel",
     "cel1",
     "cel2",
+    "cel3",
     "el1",
     "el2",
     "el3",
@@ -88,3 +90,27 @@ def returnfloat(func: Callable, *args: ArrayLike) -> FloatArray | float:
         raise ValueError(e) from None
 
     return ans.item() if is_all_scalar else ans
+
+
+def returntuple(
+    func: Callable, arg: ArrayLike
+) -> tuple[FloatArray, FloatArray] | tuple[float, float]:
+    is_scalar_arg = _is_scalar(arg)
+
+    if is_scalar_arg:
+        scalar_fn = _SCALAR_FUNCS.get(func)
+        if scalar_fn is not None:
+            try:
+                return scalar_fn(float(arg))  # type: ignore[arg-type, return-value]
+            except RuntimeError as e:
+                raise ValueError(e) from None
+
+    try:
+        ans = func(asarray(arg))
+    except RuntimeError as e:
+        raise ValueError(e) from None
+
+    if is_scalar_arg:
+        return (ans[0].item(), ans[1].item())  # type: ignore[index, union-attr]
+
+    return ans  # type: ignore[return-value]
