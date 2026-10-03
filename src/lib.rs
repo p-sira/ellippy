@@ -42,6 +42,7 @@ macro_rules! impl_py {
     // -----------------------------------------------------------------------
     (
         $($rfunc:ident : $rscalar:ident : [$($rargs:ident),+]),* $(,)? ;
+        @return_tuple
         $($tfunc:ident : $tscalar:ident : [$($targs:ident),+]),* $(,)?
     ) => {
         // --- Rayon-backed, single Vec<f64> return --------------------------
@@ -116,8 +117,8 @@ macro_rules! impl_py {
     (@first_len $head:ident $(, $tail:ident)*) => { $head.len() };
 }
 
+// Thresholds are tuned per-function in vendor/ellip/ellip-rayon for FFI overhead.
 impl_py!(
-    // Rayon-backed, single Vec<f64> return
     ellipk             : ellipk_scalar             : [m],
     ellipe             : ellipe_scalar             : [m],
     ellipf             : ellipf_scalar             : [phi, m],
@@ -142,6 +143,6 @@ impl_py!(
     jacobi_zeta        : jacobi_zeta_scalar        : [phi, m],
     heuman_lambda      : heuman_lambda_scalar      : [phi, m]
     ;
-    // Rayon-backed, (Vec<f64>, Vec<f64>) tuple return
+    @return_tuple
     ellipke            : ellipke_scalar            : [m]
 );
