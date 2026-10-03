@@ -1,5 +1,12 @@
 /target
+docs/build/
 .vscode
+.VSCodeCounter/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.pytest_cache
+.ruff_cache
 ellippy_binding.cpython-*
 __pycache__
 build
