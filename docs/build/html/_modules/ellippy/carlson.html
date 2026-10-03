@@ -1,0 +1,917 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ellippy.carlson &#8212; EllipPy 0.5.6</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9463eec" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=722679d6"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ellippy/carlson';</script>
+    <link rel="icon" href="../../_static/ellippy-square.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/ellippy-square.svg" class="logo__image only-light" alt=""/>
+    <img src="../../_static/ellippy-square.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">EllipPy 0.5.6</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipk.html">
+    ellippy.legendre.ellipk
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipe.html">
+    ellippy.legendre.ellipe
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellippi.html">
+    ellippy.legendre.ellippi
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipd.html">
+    ellippy.legendre.ellipd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipf.html">
+    ellippy.legendre.ellipf
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.legendre.ellipeinc.html">
+    ellippy.legendre.ellipeinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.legendre.ellippiinc.html">
+    ellippy.legendre.ellippiinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.legendre.ellippiinc_bulirsch.html">
+    ellippy.legendre.ellippiinc_bulirsch
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.legendre.ellipdinc.html">
+    ellippy.legendre.ellipdinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.cel.html">
+    ellippy.bulirsch.cel
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.cel1.html">
+    ellippy.bulirsch.cel1
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.cel2.html">
+    ellippy.bulirsch.cel2
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.el1.html">
+    ellippy.bulirsch.el1
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.el2.html">
+    ellippy.bulirsch.el2
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.el3.html">
+    ellippy.bulirsch.el3
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprc.html">
+    ellippy.carlson.elliprc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprd.html">
+    ellippy.carlson.elliprd
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprf.html">
+    ellippy.carlson.elliprf
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprg.html">
+    ellippy.carlson.elliprg
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprj.html">
+    ellippy.carlson.elliprj
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.misc.heuman_lambda.html">
+    ellippy.misc.heuman_lambda
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.misc.jacobi_zeta.html">
+    ellippy.misc.jacobi_zeta
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipk.html">
+    ellippy.legendre.ellipk
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipe.html">
+    ellippy.legendre.ellipe
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellippi.html">
+    ellippy.legendre.ellippi
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipd.html">
+    ellippy.legendre.ellipd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipf.html">
+    ellippy.legendre.ellipf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipeinc.html">
+    ellippy.legendre.ellipeinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellippiinc.html">
+    ellippy.legendre.ellippiinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellippiinc_bulirsch.html">
+    ellippy.legendre.ellippiinc_bulirsch
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipdinc.html">
+    ellippy.legendre.ellipdinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.cel.html">
+    ellippy.bulirsch.cel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.cel1.html">
+    ellippy.bulirsch.cel1
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.cel2.html">
+    ellippy.bulirsch.cel2
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.el1.html">
+    ellippy.bulirsch.el1
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.el2.html">
+    ellippy.bulirsch.el2
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.el3.html">
+    ellippy.bulirsch.el3
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprc.html">
+    ellippy.carlson.elliprc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprd.html">
+    ellippy.carlson.elliprd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprf.html">
+    ellippy.carlson.elliprf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprg.html">
+    ellippy.carlson.elliprg
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprj.html">
+    ellippy.carlson.elliprj
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.misc.heuman_lambda.html">
+    ellippy.misc.heuman_lambda
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.misc.jacobi_zeta.html">
+    ellippy.misc.jacobi_zeta
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">ellippy.carlson</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for ellippy.carlson</h1><div class="highlight"><pre>
+<span></span><span class="c1"># EllipPy is licensed under The 3-Clause BSD, see LICENSE.</span>
+<span class="c1"># Copyright 2025 Sira Pornsiriprasert &lt;code@psira.me&gt;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Elliptic integral functions in Carlson&#39;s form.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayLike</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_ellip</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._ellip</span><span class="w"> </span><span class="kn">import</span> <span class="n">FloatArray</span><span class="p">,</span> <span class="n">returnfloat</span>
+
+
+<div class="viewcode-block" id="elliprf">
+<a class="viewcode-back" href="../../functions/ellippy.carlson.elliprf.html#ellippy.carlson.elliprf">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">elliprf</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Carlson symmetric integral RF.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        R_F(x, y, z) = \tfrac{1}{2} \int_0^{\infty} \frac{\mathrm{d}t}{\sqrt{(t+x)(t+y)(t+z)}}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x, y, z (ArrayLike): Real-valued parameter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` broadcast from inputs.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If any of x, y, or z is negative, or more than one of them are zero, or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/elliprf.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - RF(x, x, x) = 1/sqrt(x)</span>
+<span class="sd">        - RF(x, y, y) = RC(x, y)</span>
+<span class="sd">        - RF(0, y, y) = π/(2 sqrt(y))</span>
+<span class="sd">        - RF(x, y, z) = 0 for x = ∞ or y = ∞ or z = ∞</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        With c = csc²φ, r = 1/x², and kc² = 1 - m,</span>
+<span class="sd">        - F(φ,m) = RF(c - 1, c - m, c)</span>
+<span class="sd">        - el1(x, kc) = RF(r, r + m, r + 1)</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        The parameters x, y, and z are symmetric. This means swapping them does not change the </span>
+<span class="sd">        value of the function. At most one of them can be zero.</span>
+<span class="sd">    </span>
+<span class="sd">    References:</span>
+<span class="sd">        - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">elliprf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="elliprg">
+<a class="viewcode-back" href="../../functions/ellippy.carlson.elliprg.html#ellippy.carlson.elliprg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">elliprg</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Carlson symmetric integral RG.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        R_G(x,y,z) = \frac{1}{4}\int_{0}^{\infty}\frac{t}</span>
+<span class="sd">            {\sqrt{(t+x)(t+y)(t+z)}}\,\left(\dfrac{x}{t+x}+\dfrac{y}{t+y}+\dfrac{z}{t+z}\right)\,\mathrm{d}t</span>
+<span class="sd">    Args:</span>
+<span class="sd">        x, y, z (ArrayLike): Real-valued parameter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` broadcast from inputs.</span>
+<span class="sd">    </span>
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If any of x, y, or z is negative or infinite, or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/elliprg.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+<span class="sd">    </span>
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - RG(x, x, x) = sqrt(x)</span>
+<span class="sd">        - RG(0, y, y) = π/4 * sqrt(y)</span>
+<span class="sd">        - RG(x, y, y) = (y * RC(x, y) + sqrt(x))/2</span>
+<span class="sd">        - RG(0, 0, z) = sqrt(z)/2</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        With c = csc²φ, r = 1/x², and kc² = 1 - m,</span>
+<span class="sd">            - E(m) = 2·RG(0, kc², 1)</span>
+<span class="sd">            - 5(φ, m) = 2·RG(c - 1, c - m, c) - (c - 1)·RF(c - 1, c - m, c) - sqrt((c - 1) * (c - m) / c)</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        The parameters x, y, and z are symmetric. This means swapping them does not change the </span>
+<span class="sd">        value of the function. At most one of them can be zero.</span>
+<span class="sd">    </span>
+<span class="sd">    References:</span>
+<span class="sd">        - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">elliprg</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="elliprj">
+<a class="viewcode-back" href="../../functions/ellippy.carlson.elliprj.html#ellippy.carlson.elliprj">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">elliprj</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="n">ArrayLike</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Carlson symmetric integral RJ.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        R_J(x, y, z, p) = \tfrac{3}{2} \int_0^{\infty} \frac{\mathrm{d}t}{(t+p)\,\sqrt{(t+x)(t+y)(t+z)}}</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x, y, z (ArrayLike): Real-valued parameter.</span>
+<span class="sd">        p (ArrayLike): Real-valued parameter. p ∈ ℝ, p ≠ 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` broadcast from inputs. Returns the Cauchy principal value if p &lt; 0.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If any of x, y, or z is negative, or more than one of them are zero, or p = 0, or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/elliprj.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+<span class="sd">    </span>
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - RJ(x, x, x, x) = 1/(x sqrt(x))</span>
+<span class="sd">        - RJ(x, y, z, z) = RD(x, y, z)</span>
+<span class="sd">        - RJ(x, x, x, p) = 3/(x-p) * (RC(x, p) - 1/sqrt(x)) for x ≠ p and xp ≠ 0</span>
+<span class="sd">        - RJ(x, y, y, y) = RD(x, y, y)</span>
+<span class="sd">        - RJ(x, y, y, p) = 3/(p-y) * (RC(x, y) - RC(x, p)) for y ≠ p</span>
+<span class="sd">        - RJ(x, y, z, p) = 0 for x = ∞ or y = ∞ or z = ∞ or p = ∞</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        - With c = csc²φ and kc² = 1 - m: Π(φ, n, m) = n / 3 * RJ(c - 1, c - m, c, c - n) + F(φ, m)</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        The parameters x, y, and z are symmetric. This means swapping them does not change the </span>
+<span class="sd">        value of the function. At most one of them can be zero.</span>
+<span class="sd">    </span>
+<span class="sd">    References:</span>
+<span class="sd">        - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">elliprj</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="elliprc">
+<a class="viewcode-back" href="../../functions/ellippy.carlson.elliprc.html#ellippy.carlson.elliprc">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">elliprc</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Carlson degenerate integral RC.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        R_C(x, y) = \tfrac{1}{2} \int_0^{\infty} \frac{\mathrm{d}t}{(t+y)\,\sqrt{t+x}}</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x, y (ArrayLike): Real-valued parameter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` broadcast from inputs. Returns the Cauchy principal value if y &lt; 0.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If x &lt; 0 or y = 0, or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/elliprc.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+<span class="sd">    </span>
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - RC(x, x) = 1/sqrt(x)</span>
+<span class="sd">        - RC(0, y) = π/(2*sqrt(y))</span>
+<span class="sd">        - RC(x, y) = atan(sqrt(y-x)/x) / sqrt(y-x) for y &gt; x</span>
+<span class="sd">        - RC(x, y) = ln(sqrt(x) + sqrt(x-y)) / sqrt(x-y) for y &lt; x</span>
+<span class="sd">        - RC(x, y) = 0 for x = ∞ or y = ∞</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        - RC(x, y) = RF(x, y, y)</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        RC is a degenerate case of the RF. It is an elementary function rather than an elliptic integral.</span>
+<span class="sd">    </span>
+<span class="sd">    References:</span>
+<span class="sd">        - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - The SciPy Community. “SciPy: Special Functions - Elliprc.” Accessed April 17, 2025. https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.elliprc.html.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">elliprc</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="elliprd">
+<a class="viewcode-back" href="../../functions/ellippy.carlson.elliprd.html#ellippy.carlson.elliprd">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">elliprd</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Carlson degenerate integral RD.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        R_D(x, y, z) = \tfrac{3}{2} \int_0^{\infty} \frac{\mathrm{d}t}{(t+z)\,\sqrt{(t+x)(t+y)(t+z)}}</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x, y, z (ArrayLike): Real-valued parameter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` broadcast from inputs.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If x &lt; 0, y &lt; 0, z ≤ 0 or when both x and y are zero, or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/elliprd.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+<span class="sd">    </span>
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - RD(x, x, x) = 1/(x sqrt(x))</span>
+<span class="sd">        - RD(0, y, y) = 3/4 * π / (y sqrt(y))</span>
+<span class="sd">        - RD(x, y, y) = 3/(2(y-x)) * (RC(x, y) - sqrt(x)/y) for x ≠ y</span>
+<span class="sd">        - RD(x, x, z) = 3/(z-x) * (RC(z, x) - 1/sqrt(z)) for x ≠ z</span>
+<span class="sd">        - RD(x, y, z) = 0 for x = ∞ or y = ∞ or z = ∞</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        - With c = csc²φ: D(φ, m) = RD(c - 1, c - m, c) / 3</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        The parameters x and y (but not z!) are symmetric. This means swapping them does not change the value of the function. At most one of them can be zero.</span>
+<span class="sd">    </span>
+<span class="sd">    References:</span>
+<span class="sd">        - Maddock, John, Paul Bristow, Hubert Holin, and Xiaogang Zhang. “Boost Math Library: Special Functions - Elliptic Integrals.” Accessed April 17, 2025. https://www.boost.org/doc/libs/1_88_0/libs/math/doc/html/math_toolkit/ellint.html.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">elliprd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> </div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025 Sira Pornsiriprasert.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

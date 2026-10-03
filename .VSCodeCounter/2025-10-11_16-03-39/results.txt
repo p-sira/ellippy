@@ -1,0 +1,256 @@
+Date : 2025-10-11 16:03:39
+Directory : /home/psira/Code/python/ellippy
+Total : 190 files,  28525 codes, 755 comments, 8736 blanks, all 38016 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| HTML             |         80 |     17,144 |        256 |      7,894 |     25,294 |
+| CSV              |          5 |      6,872 |          0 |          5 |      6,877 |
+| TOML             |          4 |      1,260 |          2 |        101 |      1,363 |
+| Python           |         16 |        870 |        172 |        281 |      1,323 |
+| PostCSS          |          6 |        866 |         57 |        198 |      1,121 |
+| JavaScript       |          9 |        835 |        185 |        136 |      1,156 |
+| XML              |         42 |        401 |          4 |          8 |        413 |
+| reStructuredText |         23 |        109 |         61 |         86 |        256 |
+| C++              |          1 |         81 |          6 |          7 |         94 |
+| Rust             |          1 |         51 |          4 |          6 |         61 |
+| Batch            |          1 |         26 |          1 |          9 |         36 |
+| Makefile         |          1 |          9 |          7 |          5 |         21 |
+| Markdown         |          1 |          1 |          0 |          0 |          1 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                   |        190 |     28,525 |        755 |      8,736 |     38,016 |
+| . (Files)                                                                                           |          5 |      1,261 |          2 |        101 |      1,364 |
+| docs                                                                                                |        161 |     19,228 |        579 |      8,348 |     28,155 |
+| docs (Files)                                                                                        |          2 |         35 |          8 |         14 |         57 |
+| docs/build                                                                                          |         90 |     18,505 |        494 |      8,083 |     27,082 |
+| docs/build/html                                                                                     |         90 |     18,505 |        494 |      8,083 |     27,082 |
+| docs/build/html (Files)                                                                             |          5 |      2,035 |         32 |        927 |      2,994 |
+| docs/build/html/_modules                                                                            |          5 |      2,857 |         40 |      1,418 |      4,315 |
+| docs/build/html/_modules (Files)                                                                    |          1 |        433 |          8 |        232 |        673 |
+| docs/build/html/_modules/ellippy                                                                    |          4 |      2,424 |         32 |      1,186 |      3,642 |
+| docs/build/html/_static                                                                             |         58 |      2,237 |        246 |        480 |      2,963 |
+| docs/build/html/_static (Files)                                                                     |         10 |      1,774 |        219 |        332 |      2,325 |
+| docs/build/html/_static/figures                                                                     |         43 |        451 |          0 |        144 |        595 |
+| docs/build/html/_static/scripts                                                                     |          3 |          3 |          5 |          0 |          8 |
+| docs/build/html/_static/styles                                                                      |          2 |          9 |         22 |          4 |         35 |
+| docs/build/html/functions                                                                           |         22 |     11,376 |        176 |      5,258 |     16,810 |
+| docs/source                                                                                         |         69 |        688 |         77 |        251 |      1,016 |
+| docs/source (Files)                                                                                 |          2 |        108 |         27 |         58 |        193 |
+| docs/source/_static                                                                                 |         45 |        536 |          6 |        149 |        691 |
+| docs/source/_static (Files)                                                                         |          2 |         85 |          6 |          5 |         96 |
+| docs/source/_static/figures                                                                         |         43 |        451 |          0 |        144 |        595 |
+| docs/source/functions                                                                               |         22 |         44 |         44 |         44 |        132 |
+| logo                                                                                                |          2 |        205 |          2 |          4 |        211 |
+| python                                                                                              |         21 |      7,780 |        168 |        277 |      8,225 |
+| python/benchmark                                                                                    |          2 |          0 |          4 |          2 |          6 |
+| python/ellippy                                                                                      |          7 |        635 |        136 |        221 |        992 |
+| python/tests                                                                                        |         12 |      7,145 |         28 |         54 |      7,227 |
+| python/tests (Files)                                                                                |          6 |        192 |         22 |         42 |        256 |
+| python/tests/data                                                                                   |          6 |      6,953 |          6 |         12 |      6,971 |
+| python/tests/data/boost                                                                             |          6 |      6,953 |          6 |         12 |      6,971 |
+| src                                                                                                 |          1 |         51 |          4 |          6 |         61 |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                            | language         | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /home/psira/Code/python/ellippy/Cargo.lock                                                          | TOML             |        322 |          2 |         41 |        365 |
+| /home/psira/Code/python/ellippy/Cargo.toml                                                          | TOML             |         11 |          0 |          3 |         14 |
+| /home/psira/Code/python/ellippy/README.md                                                           | Markdown         |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/Makefile                                                       | Makefile         |          9 |          7 |          5 |         21 |
+| /home/psira/Code/python/ellippy/docs/build/html/_modules/ellippy/bulirsch.html                      | HTML             |        613 |          8 |        306 |        927 |
+| /home/psira/Code/python/ellippy/docs/build/html/_modules/ellippy/carlson.html                       | HTML             |        611 |          8 |        282 |        901 |
+| /home/psira/Code/python/ellippy/docs/build/html/_modules/ellippy/legendre.html                      | HTML             |        708 |          8 |        340 |      1,056 |
+| /home/psira/Code/python/ellippy/docs/build/html/_modules/ellippy/misc.html                          | HTML             |        492 |          8 |        258 |        758 |
+| /home/psira/Code/python/ellippy/docs/build/html/_modules/index.html                                 | HTML             |        433 |          8 |        232 |        673 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/basic.css                                   | PostCSS          |        693 |         25 |        188 |        906 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/custom.css                                  | PostCSS          |          6 |          5 |          3 |         14 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/doctools.js                                 | JavaScript       |        109 |         22 |         19 |        150 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/documentation_options.js                    | JavaScript       |         13 |          0 |          0 |         13 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/ellippy-square.svg                          | XML              |         79 |          1 |          2 |         82 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/cel1_plot.html                      | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/cel1_plot.svg                       | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/cel2_plot.html                      | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/cel2_plot.svg                       | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/cel_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/cel_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/el1_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/el1_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/el2_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/el2_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/el3_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/el3_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipd_plot.html                    | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipd_plot.svg                     | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipdinc_plot.html                 | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipdinc_plot.svg                  | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipdinc_plot_3d.html              | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipe_plot.html                    | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipe_plot.svg                     | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipeinc_plot.html                 | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipeinc_plot.svg                  | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipeinc_plot_3d.html              | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipf_plot.html                    | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipf_plot.svg                     | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipf_plot_3d.html                 | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipk_plot.html                    | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellipk_plot.svg                     | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellippi_plot_3d.html                | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/ellippiinc_plot_3d.html             | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprc_plot.html                   | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprc_plot.svg                    | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprd_plot.html                   | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprd_plot.svg                    | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprf_plot.html                   | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprf_plot.svg                    | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprg_plot.html                   | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprg_plot.svg                    | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprj_plot.html                   | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/elliprj_plot.svg                    | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/heuman_lambda_plot.html             | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/heuman_lambda_plot.svg              | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/jacobi_zeta_plot.html               | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/figures/jacobi_zeta_plot.svg                | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/language_data.js                            | JavaScript       |        154 |         16 |         23 |        193 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/pygments.css                                | PostCSS          |        152 |          0 |          0 |        152 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/scripts/bootstrap.js                        | JavaScript       |          1 |          2 |          0 |          3 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/scripts/fontawesome.js                      | JavaScript       |          1 |          2 |          0 |          3 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/scripts/pydata-sphinx-theme.js              | JavaScript       |          1 |          1 |          0 |          2 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/searchtools.js                              | JavaScript       |        442 |        116 |         78 |        636 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/sphinx_highlight.js                         | JavaScript       |        113 |         26 |         16 |        155 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/styles/pydata-sphinx-theme.css              | PostCSS          |          8 |         21 |          3 |         32 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/styles/theme.css                            | PostCSS          |          1 |          1 |          1 |          3 |
+| /home/psira/Code/python/ellippy/docs/build/html/_static/webpack-macros.html                         | HTML             |         13 |          8 |          3 |         24 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.bulirsch.cel.html                 | HTML             |        523 |          8 |        239 |        770 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.bulirsch.cel1.html                | HTML             |        513 |          8 |        239 |        760 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.bulirsch.cel2.html                | HTML             |        516 |          8 |        239 |        763 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.bulirsch.el1.html                 | HTML             |        517 |          8 |        239 |        764 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.bulirsch.el2.html                 | HTML             |        520 |          8 |        239 |        767 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.bulirsch.el3.html                 | HTML             |        517 |          8 |        239 |        764 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.carlson.elliprc.html              | HTML             |        518 |          8 |        239 |        765 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.carlson.elliprd.html              | HTML             |        518 |          8 |        239 |        765 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.carlson.elliprf.html              | HTML             |        518 |          8 |        239 |        765 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.carlson.elliprg.html              | HTML             |        519 |          8 |        239 |        766 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.carlson.elliprj.html              | HTML             |        521 |          8 |        239 |        768 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellipd.html              | HTML             |        514 |          8 |        239 |        761 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellipdinc.html           | HTML             |        520 |          8 |        239 |        767 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellipe.html              | HTML             |        516 |          8 |        239 |        763 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellipeinc.html           | HTML             |        519 |          8 |        239 |        766 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellipf.html              | HTML             |        518 |          8 |        239 |        765 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellipk.html              | HTML             |        514 |          8 |        239 |        761 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellippi.html             | HTML             |        525 |          8 |        239 |        772 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellippiinc.html          | HTML             |        526 |          8 |        239 |        773 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.legendre.ellippiinc_bulirsch.html | HTML             |        502 |          8 |        239 |        749 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.misc.heuman_lambda.html           | HTML             |        515 |          8 |        239 |        762 |
+| /home/psira/Code/python/ellippy/docs/build/html/functions/ellippy.misc.jacobi_zeta.html             | HTML             |        507 |          8 |        239 |        754 |
+| /home/psira/Code/python/ellippy/docs/build/html/genindex.html                                       | HTML             |        527 |          8 |        239 |        774 |
+| /home/psira/Code/python/ellippy/docs/build/html/index.html                                          | HTML             |        619 |          8 |        234 |        861 |
+| /home/psira/Code/python/ellippy/docs/build/html/py-modindex.html                                    | HTML             |        445 |          8 |        232 |        685 |
+| /home/psira/Code/python/ellippy/docs/build/html/search.html                                         | HTML             |        443 |          8 |        222 |        673 |
+| /home/psira/Code/python/ellippy/docs/build/html/searchindex.js                                      | JavaScript       |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/make.bat                                                       | Batch            |         26 |          1 |          9 |         36 |
+| /home/psira/Code/python/ellippy/docs/source/_static/custom.css                                      | PostCSS          |          6 |          5 |          3 |         14 |
+| /home/psira/Code/python/ellippy/docs/source/_static/ellippy-square.svg                              | XML              |         79 |          1 |          2 |         82 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/cel1_plot.html                          | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/cel1_plot.svg                           | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/cel2_plot.html                          | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/cel2_plot.svg                           | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/cel_plot.html                           | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/cel_plot.svg                            | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/el1_plot.html                           | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/el1_plot.svg                            | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/el2_plot.html                           | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/el2_plot.svg                            | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/el3_plot.html                           | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/el3_plot.svg                            | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipd_plot.html                        | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipd_plot.svg                         | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipdinc_plot.html                     | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipdinc_plot.svg                      | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipdinc_plot_3d.html                  | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipe_plot.html                        | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipe_plot.svg                         | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipeinc_plot.html                     | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipeinc_plot.svg                      | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipeinc_plot_3d.html                  | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipf_plot.html                        | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipf_plot.svg                         | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipf_plot_3d.html                     | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipk_plot.html                        | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellipk_plot.svg                         | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellippi_plot_3d.html                    | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/ellippiinc_plot_3d.html                 | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprc_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprc_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprd_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprd_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprf_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprf_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprg_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprg_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprj_plot.html                       | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/elliprj_plot.svg                        | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/heuman_lambda_plot.html                 | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/heuman_lambda_plot.svg                  | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/jacobi_zeta_plot.html                   | HTML             |         18 |          0 |          6 |         24 |
+| /home/psira/Code/python/ellippy/docs/source/_static/figures/jacobi_zeta_plot.svg                    | XML              |          1 |          0 |          0 |          1 |
+| /home/psira/Code/python/ellippy/docs/source/conf.py                                                 | Python           |         43 |         10 |         16 |         69 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.cel.rst                      | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.cel1.rst                     | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.cel2.rst                     | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.el1.rst                      | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.el2.rst                      | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.el3.rst                      | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprc.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprd.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprf.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprg.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprj.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipd.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipdinc.rst                | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipe.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipeinc.rst                | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipf.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipk.rst                   | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellippi.rst                  | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellippiinc.rst               | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellippiinc_bulirsch.rst      | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.misc.heuman_lambda.rst                | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.misc.jacobi_zeta.rst                  | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/index.rst                                               | reStructuredText |         65 |         17 |         42 |        124 |
+| /home/psira/Code/python/ellippy/logo/ellippy-logo.svg                                               | XML              |        126 |          1 |          2 |        129 |
+| /home/psira/Code/python/ellippy/logo/ellippy-square.svg                                             | XML              |         79 |          1 |          2 |         82 |
+| /home/psira/Code/python/ellippy/pyproject.toml                                                      | TOML             |         32 |          0 |          5 |         37 |
+| /home/psira/Code/python/ellippy/python/benchmark/__init__.py                                        | Python           |          0 |          2 |          1 |          3 |
+| /home/psira/Code/python/ellippy/python/benchmark/bench_utils.py                                     | Python           |          0 |          2 |          1 |          3 |
+| /home/psira/Code/python/ellippy/python/ellippy/__about__.py                                         | Python           |          6 |          2 |          3 |         11 |
+| /home/psira/Code/python/ellippy/python/ellippy/__init__.py                                          | Python           |         31 |          7 |          5 |         43 |
+| /home/psira/Code/python/ellippy/python/ellippy/_ellip.py                                            | Python           |         43 |          2 |         10 |         55 |
+| /home/psira/Code/python/ellippy/python/ellippy/bulirsch.py                                          | Python           |        143 |         33 |         54 |        230 |
+| /home/psira/Code/python/ellippy/python/ellippy/carlson.py                                           | Python           |        137 |         29 |         48 |        214 |
+| /home/psira/Code/python/ellippy/python/ellippy/legendre.py                                          | Python           |        227 |         50 |         81 |        358 |
+| /home/psira/Code/python/ellippy/python/ellippy/misc.py                                              | Python           |         48 |         13 |         20 |         81 |
+| /home/psira/Code/python/ellippy/python/tests/__init__.py                                            | Python           |          0 |          2 |          1 |          3 |
+| /home/psira/Code/python/ellippy/python/tests/common_utils.py                                        | Python           |         22 |         12 |         11 |         45 |
+| /home/psira/Code/python/ellippy/python/tests/data/boost/carlson.cpp                                 | C++              |         81 |          6 |          7 |         94 |
+| /home/psira/Code/python/ellippy/python/tests/data/boost/elliprf_data.csv                            | CSV              |      1,300 |          0 |          1 |      1,301 |
+| /home/psira/Code/python/ellippy/python/tests/data/boost/elliprg_data.csv                            | CSV              |      1,300 |          0 |          1 |      1,301 |
+| /home/psira/Code/python/ellippy/python/tests/data/boost/elliprj_data.csv                            | CSV              |      1,944 |          0 |          1 |      1,945 |
+| /home/psira/Code/python/ellippy/python/tests/data/boost/elliprj_pv.csv                              | CSV              |      1,944 |          0 |          1 |      1,945 |
+| /home/psira/Code/python/ellippy/python/tests/data/boost/elliprj_pv_small.csv                        | CSV              |        384 |          0 |          1 |        385 |
+| /home/psira/Code/python/ellippy/python/tests/test_bulirsch.py                                       | Python           |         46 |          2 |          8 |         56 |
+| /home/psira/Code/python/ellippy/python/tests/test_carlson.py                                        | Python           |         39 |          2 |          7 |         48 |
+| /home/psira/Code/python/ellippy/python/tests/test_legendre.py                                       | Python           |         68 |          2 |         11 |         81 |
+| /home/psira/Code/python/ellippy/python/tests/test_misc.py                                           | Python           |         17 |          2 |          4 |         23 |
+| /home/psira/Code/python/ellippy/src/lib.rs                                                          | Rust             |         51 |          4 |          6 |         61 |
+| /home/psira/Code/python/ellippy/uv.lock                                                             | TOML             |        895 |          0 |         52 |        947 |
+| Total                                                                                               |                  |     28,525 |        755 |      8,736 |     38,016 |
++-----------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+

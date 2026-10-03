@@ -1,0 +1,16 @@
+{
+    "psi-header.variables": [
+        [
+            "project",
+            "EllipPy"
+        ],
+        [
+            "yearpublished",
+            "2025"
+        ],
+        [
+            "license",
+            "The 3-Clause BSD"
+        ],
+    ]
+}

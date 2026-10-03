@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EllipPy Documentation &#8212; EllipPy 0.5.6</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=a9463eec" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=722679d6"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="icon" href="_static/ellippy-square.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ellippy.legendre.ellipk" href="functions/ellippy.legendre.ellipk.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/ellippy-square.svg" class="logo__image only-light" alt=""/>
+    <img src="_static/ellippy-square.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">EllipPy 0.5.6</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipk.html">
+    ellippy.legendre.ellipk
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipe.html">
+    ellippy.legendre.ellipe
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellippi.html">
+    ellippy.legendre.ellippi
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipd.html">
+    ellippy.legendre.ellipd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipf.html">
+    ellippy.legendre.ellipf
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.legendre.ellipeinc.html">
+    ellippy.legendre.ellipeinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.legendre.ellippiinc.html">
+    ellippy.legendre.ellippiinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.legendre.ellippiinc_bulirsch.html">
+    ellippy.legendre.ellippiinc_bulirsch
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.legendre.ellipdinc.html">
+    ellippy.legendre.ellipdinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.bulirsch.cel.html">
+    ellippy.bulirsch.cel
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.bulirsch.cel1.html">
+    ellippy.bulirsch.cel1
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.bulirsch.cel2.html">
+    ellippy.bulirsch.cel2
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.bulirsch.el1.html">
+    ellippy.bulirsch.el1
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.bulirsch.el2.html">
+    ellippy.bulirsch.el2
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.bulirsch.el3.html">
+    ellippy.bulirsch.el3
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.carlson.elliprc.html">
+    ellippy.carlson.elliprc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.carlson.elliprd.html">
+    ellippy.carlson.elliprd
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.carlson.elliprf.html">
+    ellippy.carlson.elliprf
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.carlson.elliprg.html">
+    ellippy.carlson.elliprg
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.carlson.elliprj.html">
+    ellippy.carlson.elliprj
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.misc.heuman_lambda.html">
+    ellippy.misc.heuman_lambda
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="functions/ellippy.misc.jacobi_zeta.html">
+    ellippy.misc.jacobi_zeta
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipk.html">
+    ellippy.legendre.ellipk
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipe.html">
+    ellippy.legendre.ellipe
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellippi.html">
+    ellippy.legendre.ellippi
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipd.html">
+    ellippy.legendre.ellipd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipf.html">
+    ellippy.legendre.ellipf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipeinc.html">
+    ellippy.legendre.ellipeinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellippiinc.html">
+    ellippy.legendre.ellippiinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellippiinc_bulirsch.html">
+    ellippy.legendre.ellippiinc_bulirsch
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.legendre.ellipdinc.html">
+    ellippy.legendre.ellipdinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.bulirsch.cel.html">
+    ellippy.bulirsch.cel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.bulirsch.cel1.html">
+    ellippy.bulirsch.cel1
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.bulirsch.cel2.html">
+    ellippy.bulirsch.cel2
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.bulirsch.el1.html">
+    ellippy.bulirsch.el1
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.bulirsch.el2.html">
+    ellippy.bulirsch.el2
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.bulirsch.el3.html">
+    ellippy.bulirsch.el3
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.carlson.elliprc.html">
+    ellippy.carlson.elliprc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.carlson.elliprd.html">
+    ellippy.carlson.elliprd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.carlson.elliprf.html">
+    ellippy.carlson.elliprf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.carlson.elliprg.html">
+    ellippy.carlson.elliprg
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.carlson.elliprj.html">
+    ellippy.carlson.elliprj
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.misc.heuman_lambda.html">
+    ellippy.misc.heuman_lambda
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="functions/ellippy.misc.jacobi_zeta.html">
+    ellippy.misc.jacobi_zeta
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ellippy-documentation">
+<h1>EllipPy Documentation<a class="headerlink" href="#ellippy-documentation" title="Link to this heading">#</a></h1>
+<h1 align="center">
+   <a href="https://github.com/p-sira/ellip/">
+      <img src="_static/ellippy-logo.svg" alt="EllipPy" width="350">
+   </a>
+</h1>
+
+<p align="center">
+   <a href="https://opensource.org/license/BSD-3-clause">
+      <img src="https://img.shields.io/badge/License-BSD--3--Clause-brightgreen.svg" alt="License">
+   </a>
+   <a href="https://pypi.org/project/ellippy">
+      <img src="https://img.shields.io/pypi/v/ellippy?label=pypi%20package" alt="PyPI Package">
+   </a>
+   <a href="https://pypi.org/project/ellippy">
+      <img src="https://static.pepy.tech/personalized-badge/ellippy?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BRIGHTGREEN&left_text=downloads" alt="Total Downloads">
+   </a>
+   <a href="https://p-sira.github.io/ellippy">
+      <img src="https://img.shields.io/badge/Docs-github.io-blue" alt="Documentation">
+   </a>
+   <a style="border-width:0" href="https://doi.org/10.21105/joss.09386">
+     <img src="https://joss.theoj.org/papers/10.21105/joss.09386/status.svg" alt="DOI badge" >
+   </a>
+</p><hr class="docutils" />
+<p><strong>EllipPy</strong> is an elliptic integral library for Python, powered by Rust. All functions support numpy and parallelization. EllipPy features high accuracy and performance. For more details on testing and benchmarks, please refer to <a class="reference external" href="https://github.com/p-sira/ellip">Ellip</a>.</p>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ellippy</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">ellipk</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]))</span> <span class="c1"># [1.61244135 1.6596236  1.71388945 1.77751937 1.85407468]</span>
+
+<span class="n">ellippiinc</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">phi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span> <span class="c1"># 0.1003043379500434</span>
+
+<span class="n">cel</span><span class="p">(</span><span class="n">kc</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">b</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">)</span> <span class="c1"># -5.2310275365518795</span>
+
+<span class="n">elliprf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span> <span class="c1"># [2.29880489 1.68455225 1.32157804]</span>
+
+<span class="n">jacobi_zeta</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="c1"># 0.13272240254017148</span>
+</pre></div>
+</div>
+<p>To install EllipPy, use your preferred package manager:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>ellippy
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>ellippy
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="submodules">
+<h1>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-ellippy.legendre" title="ellippy.legendre"><code class="xref py py-obj docutils literal notranslate"><span class="pre">legendre</span></code></a></p></td>
+<td><p>Elliptic integral functions in Legendre's form.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#module-ellippy.bulirsch" title="ellippy.bulirsch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bulirsch</span></code></a></p></td>
+<td><p>Elliptic integral functions in Bulirsch's form.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-ellippy.carlson" title="ellippy.carlson"><code class="xref py py-obj docutils literal notranslate"><span class="pre">carlson</span></code></a></p></td>
+<td><p>Elliptic integral functions in Carlson's form.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#module-ellippy.misc" title="ellippy.misc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">misc</span></code></a></p></td>
+<td><p>Miscellaneous functions related to elliptic integrals.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="legendre-s-integrals">
+<h1>Legendre’s Integrals<a class="headerlink" href="#legendre-s-integrals" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">ellippy.legendre</span></code></p>
+<p id="module-ellippy.legendre">Elliptic integral functions in Legendre’s form.</p>
+<section id="complete-elliptic-integrals">
+<h2>Complete Elliptic Integrals<a class="headerlink" href="#complete-elliptic-integrals" title="Link to this heading">#</a></h2>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellipk.html#ellippy.legendre.ellipk" title="ellippy.legendre.ellipk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellipk</span></code></a></p></td>
+<td><p>Computes complete elliptic integral of the first kind K(m).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellipe.html#ellippy.legendre.ellipe" title="ellippy.legendre.ellipe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellipe</span></code></a></p></td>
+<td><p>Computes complete elliptic integral of the second kind E(m).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellippi.html#ellippy.legendre.ellippi" title="ellippy.legendre.ellippi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellippi</span></code></a></p></td>
+<td><p>Computes complete elliptic integral of the third kind Π(n | m).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellipd.html#ellippy.legendre.ellipd" title="ellippy.legendre.ellipd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellipd</span></code></a></p></td>
+<td><p>Computes complete elliptic integral of Legendre's type D(m).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="incomplete-elliptic-integrals">
+<h2>Incomplete Elliptic Integrals<a class="headerlink" href="#incomplete-elliptic-integrals" title="Link to this heading">#</a></h2>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellipf.html#ellippy.legendre.ellipf" title="ellippy.legendre.ellipf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellipf</span></code></a></p></td>
+<td><p>Computes incomplete elliptic integral of the first kind F(φ | m).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellipeinc.html#ellippy.legendre.ellipeinc" title="ellippy.legendre.ellipeinc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellipeinc</span></code></a></p></td>
+<td><p>Computes incomplete elliptic integral of the second kind E(φ | m).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellippiinc.html#ellippy.legendre.ellippiinc" title="ellippy.legendre.ellippiinc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellippiinc</span></code></a></p></td>
+<td><p>Computes incomplete elliptic integral of the third kind Π(n; φ | m).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellippiinc_bulirsch.html#ellippy.legendre.ellippiinc_bulirsch" title="ellippy.legendre.ellippiinc_bulirsch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellippiinc_bulirsch</span></code></a></p></td>
+<td><p>Computes incomplete elliptic integral of the third kind using the Bulirsch algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.legendre.ellipdinc.html#ellippy.legendre.ellipdinc" title="ellippy.legendre.ellipdinc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ellipdinc</span></code></a></p></td>
+<td><p>Computes incomplete elliptic integral of Legendre's type D(φ | m).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="bulirsch-s-integrals">
+<h1>Bulirsch’s Integrals<a class="headerlink" href="#bulirsch-s-integrals" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">ellippy.bulirsch</span></code></p>
+<p id="module-ellippy.bulirsch">Elliptic integral functions in Bulirsch’s form.</p>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.bulirsch.cel.html#ellippy.bulirsch.cel" title="ellippy.bulirsch.cel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cel</span></code></a></p></td>
+<td><p>Computes general complete elliptic integral in Bulirsch form <code class="docutils literal notranslate"><span class="pre">cel</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.bulirsch.cel1.html#ellippy.bulirsch.cel1" title="ellippy.bulirsch.cel1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cel1</span></code></a></p></td>
+<td><p>Computes Bulirsch complete integral of the first kind <code class="docutils literal notranslate"><span class="pre">cel1</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.bulirsch.cel2.html#ellippy.bulirsch.cel2" title="ellippy.bulirsch.cel2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cel2</span></code></a></p></td>
+<td><p>Computes Bulirsch complete integral of the second kind <code class="docutils literal notranslate"><span class="pre">cel2</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.bulirsch.el1.html#ellippy.bulirsch.el1" title="ellippy.bulirsch.el1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">el1</span></code></a></p></td>
+<td><p>Computes Bulirsch incomplete integral of the first kind <code class="docutils literal notranslate"><span class="pre">el1</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.bulirsch.el2.html#ellippy.bulirsch.el2" title="ellippy.bulirsch.el2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">el2</span></code></a></p></td>
+<td><p>Computes Bulirsch incomplete integral of the second kind <code class="docutils literal notranslate"><span class="pre">el2</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.bulirsch.el3.html#ellippy.bulirsch.el3" title="ellippy.bulirsch.el3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">el3</span></code></a></p></td>
+<td><p>Computes Bulirsch incomplete integral of the third kind <code class="docutils literal notranslate"><span class="pre">el3</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="carlson-s-symmetric-integrals">
+<h1>Carlson’s Symmetric Integrals<a class="headerlink" href="#carlson-s-symmetric-integrals" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">ellippy.carlson</span></code></p>
+<p id="module-ellippy.carlson">Elliptic integral functions in Carlson’s form.</p>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.carlson.elliprc.html#ellippy.carlson.elliprc" title="ellippy.carlson.elliprc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elliprc</span></code></a></p></td>
+<td><p>Computes Carlson degenerate integral RC.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.carlson.elliprd.html#ellippy.carlson.elliprd" title="ellippy.carlson.elliprd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elliprd</span></code></a></p></td>
+<td><p>Computes Carlson degenerate integral RD.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.carlson.elliprf.html#ellippy.carlson.elliprf" title="ellippy.carlson.elliprf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elliprf</span></code></a></p></td>
+<td><p>Computes Carlson symmetric integral RF.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.carlson.elliprg.html#ellippy.carlson.elliprg" title="ellippy.carlson.elliprg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elliprg</span></code></a></p></td>
+<td><p>Computes Carlson symmetric integral RG.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.carlson.elliprj.html#ellippy.carlson.elliprj" title="ellippy.carlson.elliprj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">elliprj</span></code></a></p></td>
+<td><p>Computes Carlson symmetric integral RJ.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="miscellaneous-functions">
+<h1>Miscellaneous Functions<a class="headerlink" href="#miscellaneous-functions" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">ellippy.misc</span></code></p>
+<p id="module-ellippy.misc">Miscellaneous functions related to elliptic integrals.</p>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="functions/ellippy.misc.heuman_lambda.html#ellippy.misc.heuman_lambda" title="ellippy.misc.heuman_lambda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">heuman_lambda</span></code></a></p></td>
+<td><p>Computes Heuman Lambda function Λ₀(φ | m).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="functions/ellippy.misc.jacobi_zeta.html#ellippy.misc.jacobi_zeta" title="ellippy.misc.jacobi_zeta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jacobi_zeta</span></code></a></p></td>
+<td><p>Computes Jacobi Zeta function Z(φ | m).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="citation">
+<h1>Citation<a class="headerlink" href="#citation" title="Link to this heading">#</a></h1>
+<p>EllipPy is based on a Rust library, Ellip. The paper is published in the <a class="reference external" href="https://joss.theoj.org/papers/10.21105/joss.09386">Journal of Open Source Software</a>. If EllipPy is helpful to your work, please consider citing Ellip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pornsiriprasert</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="p">,</span> <span class="p">(</span><span class="mi">2026</span><span class="p">)</span><span class="o">.</span> <span class="n">Ellip</span><span class="p">:</span> <span class="n">An</span> <span class="n">Elliptic</span> <span class="n">Integral</span> <span class="n">Library</span> <span class="k">for</span> <span class="n">Rust</span><span class="o">.</span> <span class="n">Journal</span> <span class="n">of</span> <span class="n">Open</span> <span class="n">Source</span> <span class="n">Software</span><span class="p">,</span> <span class="mi">11</span><span class="p">(</span><span class="mi">118</span><span class="p">),</span> <span class="mi">9386</span><span class="p">,</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">doi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mf">10.21105</span><span class="o">/</span><span class="n">joss</span><span class="mf">.09386</span>
+</pre></div>
+</div>
+<p>Bibtex format:</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">Pornsiriprasert2026</span><span class="p">,</span>
+<span class="w">   </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{10.21105/joss.09386}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://doi.org/10.21105/joss.09386}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2026}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{The Open Journal}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">volume</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{11}</span><span class="p">,</span><span class="w"> </span><span class="na">number</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{118}</span><span class="p">,</span><span class="w"> </span><span class="na">pages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{9386}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Pornsiriprasert, Sira}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Ellip: An Elliptic Integral Library for Rust}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Journal of Open Source Software}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="functions/ellippy.legendre.ellipk.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ellippy.legendre.ellipk</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">EllipPy Documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#legendre-s-integrals">Legendre’s Integrals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-elliptic-integrals">Complete Elliptic Integrals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incomplete-elliptic-integrals">Incomplete Elliptic Integrals</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bulirsch-s-integrals">Bulirsch’s Integrals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#carlson-s-symmetric-integrals">Carlson’s Symmetric Integrals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#miscellaneous-functions">Miscellaneous Functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025 Sira Pornsiriprasert.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

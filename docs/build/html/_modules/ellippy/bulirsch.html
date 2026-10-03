@@ -1,0 +1,942 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ellippy.bulirsch &#8212; EllipPy 0.5.6</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a9463eec" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=722679d6"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ellippy/bulirsch';</script>
+    <link rel="icon" href="../../_static/ellippy-square.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/ellippy-square.svg" class="logo__image only-light" alt=""/>
+    <img src="../../_static/ellippy-square.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">EllipPy 0.5.6</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipk.html">
+    ellippy.legendre.ellipk
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipe.html">
+    ellippy.legendre.ellipe
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellippi.html">
+    ellippy.legendre.ellippi
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipd.html">
+    ellippy.legendre.ellipd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipf.html">
+    ellippy.legendre.ellipf
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.legendre.ellipeinc.html">
+    ellippy.legendre.ellipeinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.legendre.ellippiinc.html">
+    ellippy.legendre.ellippiinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.legendre.ellippiinc_bulirsch.html">
+    ellippy.legendre.ellippiinc_bulirsch
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.legendre.ellipdinc.html">
+    ellippy.legendre.ellipdinc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.cel.html">
+    ellippy.bulirsch.cel
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.cel1.html">
+    ellippy.bulirsch.cel1
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.cel2.html">
+    ellippy.bulirsch.cel2
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.el1.html">
+    ellippy.bulirsch.el1
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.el2.html">
+    ellippy.bulirsch.el2
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.bulirsch.el3.html">
+    ellippy.bulirsch.el3
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprc.html">
+    ellippy.carlson.elliprc
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprd.html">
+    ellippy.carlson.elliprd
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprf.html">
+    ellippy.carlson.elliprf
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprg.html">
+    ellippy.carlson.elliprg
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.carlson.elliprj.html">
+    ellippy.carlson.elliprj
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.misc.heuman_lambda.html">
+    ellippy.misc.heuman_lambda
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../functions/ellippy.misc.jacobi_zeta.html">
+    ellippy.misc.jacobi_zeta
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipk.html">
+    ellippy.legendre.ellipk
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipe.html">
+    ellippy.legendre.ellipe
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellippi.html">
+    ellippy.legendre.ellippi
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipd.html">
+    ellippy.legendre.ellipd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipf.html">
+    ellippy.legendre.ellipf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipeinc.html">
+    ellippy.legendre.ellipeinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellippiinc.html">
+    ellippy.legendre.ellippiinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellippiinc_bulirsch.html">
+    ellippy.legendre.ellippiinc_bulirsch
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.legendre.ellipdinc.html">
+    ellippy.legendre.ellipdinc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.cel.html">
+    ellippy.bulirsch.cel
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.cel1.html">
+    ellippy.bulirsch.cel1
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.cel2.html">
+    ellippy.bulirsch.cel2
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.el1.html">
+    ellippy.bulirsch.el1
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.el2.html">
+    ellippy.bulirsch.el2
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.bulirsch.el3.html">
+    ellippy.bulirsch.el3
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprc.html">
+    ellippy.carlson.elliprc
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprd.html">
+    ellippy.carlson.elliprd
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprf.html">
+    ellippy.carlson.elliprf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprg.html">
+    ellippy.carlson.elliprg
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.carlson.elliprj.html">
+    ellippy.carlson.elliprj
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.misc.heuman_lambda.html">
+    ellippy.misc.heuman_lambda
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../functions/ellippy.misc.jacobi_zeta.html">
+    ellippy.misc.jacobi_zeta
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">ellippy.bulirsch</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for ellippy.bulirsch</h1><div class="highlight"><pre>
+<span></span><span class="c1"># EllipPy is licensed under The 3-Clause BSD, see LICENSE.</span>
+<span class="c1"># Copyright 2025 Sira Pornsiriprasert &lt;code@psira.me&gt;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Elliptic integral functions in Bulirsch&#39;s form.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayLike</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_ellip</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._ellip</span><span class="w"> </span><span class="kn">import</span> <span class="n">FloatArray</span><span class="p">,</span> <span class="n">returnfloat</span><span class="p">,</span> <span class="n">returnfloat_single</span>
+
+
+<div class="viewcode-block" id="cel">
+<a class="viewcode-back" href="../../functions/ellippy.bulirsch.cel.html#ellippy.bulirsch.cel">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">cel</span><span class="p">(</span><span class="n">kc</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes general complete elliptic integral in Bulirsch form ``cel``.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathrm{cel}(k_c, p, a, b) = \int_0^{\pi/2} \frac{a\cos^2\theta + b\sin^2\theta}{(\cos^2\theta + p\sin^2\theta)\,\sqrt{\cos^2\theta + k_c^2\sin^2\theta}}\,\mathrm{d}\theta</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        kc (ArrayLike): Complementary modulus. kc ∈ ℝ, kc ≠ 0.</span>
+<span class="sd">        p (ArrayLike): Characteristic parameter. p ∈ ℝ, p ≠ 0.</span>
+<span class="sd">        a, b (ArrayLike): Real-valued coefficient.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` with the same shape as `kc`.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If kc = 0, p = 0, more than one argument is infinite, or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/cel.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - cel(kc, p, 0, 0) = 0</span>
+<span class="sd">        - cel(kc, p, a, b) = 0 for \|kc\| = ∞</span>
+<span class="sd">        - cel(kc, p, a, b) = 0 for \|p\| = ∞</span>
+<span class="sd">        - cel(kc, p, a, b) = sign(a) ∞ for \|a\| = ∞</span>
+<span class="sd">        - cel(kc, p, a, b) = sign(b) ∞ for \|b\| = ∞</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        With kc² = 1 - m and p = 1 - n:</span>
+<span class="sd">            - K(m) = cel(kc, 1, 1, 1) = cel1(kc)</span>
+<span class="sd">            - E(m) = cel(kc, 1, 1, kc²) = cel2(kc, 1, kc²)</span>
+<span class="sd">            - D(m) = cel(kc, 1, 0, 1)</span>
+<span class="sd">            - Π(n, m) = cel(kc, p, 1, 1)</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        - Bulirsch, R. “Numerical Calculation of Elliptic Integrals and Elliptic Functions. III.” Numerische Mathematik 13, no. 4 (August 1, 1969): 305-15. https://doi.org/10.1007/BF02165405.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">cel</span><span class="p">,</span> <span class="n">kc</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="cel1">
+<a class="viewcode-back" href="../../functions/ellippy.bulirsch.cel1.html#ellippy.bulirsch.cel1">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">cel1</span><span class="p">(</span><span class="n">kc</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Bulirsch complete integral of the first kind ``cel1``.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathrm{cel1}(k_c) = \int_0^{\pi/2} \frac{\mathrm{d}\theta}{\sqrt{\cos^2\theta + k_c^2\sin^2\theta}}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        kc (ArrayLike): Complementary modulus. kc ∈ ℝ, kc ≠ 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` with the same shape as `kc`.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If kc = 0 or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/cel1.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - cel1(kc) = 0 for \|kc\| = ∞</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        - With kc² = 1 - m: K(m) = cel(kc, 1, 1, 1) = cel1(kc)</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        - Bulirsch, Roland. “Numerical Calculation of Elliptic Integrals and Elliptic Functions.” Numerische Mathematik 7, no. 1 (February 1, 1965): 78-90. https://doi.org/10.1007/BF01397975.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat_single</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">cel1</span><span class="p">,</span> <span class="n">kc</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="cel2">
+<a class="viewcode-back" href="../../functions/ellippy.bulirsch.cel2.html#ellippy.bulirsch.cel2">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">cel2</span><span class="p">(</span><span class="n">kc</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Bulirsch complete integral of the second kind ``cel2``.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathrm{cel2}(k_c, a, b) = \int_{0}^{\pi/2}\frac{a + b\,\tan^2\theta}{\sqrt{(1+\tan^2\theta)(1+k_c^2\tan^2\theta)}} \,\mathrm{d}\theta</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        kc (ArrayLike): Complementary modulus. kc ∈ ℝ, kc ≠ 0.</span>
+<span class="sd">        a, b (ArrayLike): Real-valued coefficient.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` with the same shape as `kc`.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If kc = 0, more than one arguments are infinite, or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/cel2.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - cel2(kc, 0, 0) = 0</span>
+<span class="sd">        - cel(kc, a, b) = 0 for \|kc\| = ∞</span>
+<span class="sd">        - cel(kc, a, b) = sign(a) ∞ for \|a\| = ∞</span>
+<span class="sd">        - cel(kc, a, b) = sign(b) ∞ for \|b\| = ∞</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        - cel2(kc, a, b) = cel(kc, 1, a, b)</span>
+<span class="sd">        - With kc² = 1 - m: E(m) = cel(kc, 1, 1, kc²) = cel2(kc, 1, kc²)</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        - Bulirsch, Roland. “Numerical Calculation of Elliptic Integrals and Elliptic Functions.” Numerische Mathematik 7, no. 1 (February 1, 1965): 78-90. https://doi.org/10.1007/BF01397975.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">cel2</span><span class="p">,</span> <span class="n">kc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="el1">
+<a class="viewcode-back" href="../../functions/ellippy.bulirsch.el1.html#ellippy.bulirsch.el1">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">el1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">kc</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Bulirsch incomplete integral of the first kind ``el1``.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathrm{el1}(x, k_c) = \int_0^{\arctan x} \frac{\mathrm{d}\theta}{\sqrt{\cos^2\theta + k_c^2\sin^2\theta}}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (ArrayLike): Tangent of amplitude angle, x ∈ ℝ, x = tan(φ).</span>
+<span class="sd">        kc (ArrayLike): Complementary modulus. kc ∈ ℝ, kc ≠ 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` broadcast from inputs.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If kc = 0 or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/el1.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - el1(0, kc) = 0</span>
+<span class="sd">        - el1(∞, kc) = cel1(kc)</span>
+<span class="sd">        - el1(x, ∞) = 0</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        With x = tan φ and kc² = 1 - m:</span>
+<span class="sd">            - F(φ, m) = el1(x, kc) = el2(x, kc, 1, 1)</span>
+<span class="sd">            - el1(∞, kc) = cel1(kc)</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        - Bulirsch, Roland. “Numerical Calculation of Elliptic Integrals and Elliptic Functions.” Numerische Mathematik 7, no. 1 (February 1, 1965): 78-90. https://doi.org/10.1007/BF01397975.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">el1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">kc</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="el2">
+<a class="viewcode-back" href="../../functions/ellippy.bulirsch.el2.html#ellippy.bulirsch.el2">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">el2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">kc</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Bulirsch incomplete integral of the second kind ``el2``.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathrm{el2}(x, k_c, a, b) = \int_{0}^{\arctan x}\frac{a + b\,\tan^2\theta}{\sqrt{(1+\tan^2\theta)(1+k_c^2\tan^2\theta)}} \,\mathrm{d}\theta</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (ArrayLike): Tangent of amplitude angle, x ∈ ℝ, x = tan(φ).</span>
+<span class="sd">        kc (ArrayLike): Complementary modulus. kc ∈ ℝ, kc ≠ 0.</span>
+<span class="sd">        a, b (ArrayLike): Real-valued coefficient.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` broadcast from inputs.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If kc = 0 or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/el2.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - el2(0, kc, a, b) = 0</span>
+<span class="sd">        - el2(x, kc, 0, 0) = 0</span>
+<span class="sd">        - el2(∞, kc, a, b) = cel2(kc, a, b)</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        With x = tan φ and kc² = 1 - m,</span>
+<span class="sd">            - F(φ, m) = el1(x, kc) = el2(x, kc, 1, 1)</span>
+<span class="sd">            - E(φ, m) = el2(x, kc, 1, kc²)</span>
+<span class="sd">            - el2(∞, kc, a, b) = cel2(kc, a, b)</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        - Bulirsch, Roland. “Numerical Calculation of Elliptic Integrals and Elliptic Functions.” Numerische Mathematik 7, no. 1 (February 1, 1965): 78-90. https://doi.org/10.1007/BF01397975.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">el2</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">kc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="el3">
+<a class="viewcode-back" href="../../functions/ellippy.bulirsch.el3.html#ellippy.bulirsch.el3">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">el3</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">kc</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FloatArray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Computes Bulirsch incomplete integral of the third kind ``el3``.</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \mathrm{el3}(x, k_c, p) = \int_0^{\arctan x} \frac{\mathrm{d}\theta}{\left(\cos^2\theta + p\sin^2\theta\right)\,\sqrt{\cos^2\theta + k_c^2\sin^2\theta}}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (ArrayLike): Tangent of amplitude angle, x ∈ ℝ, x = tan(φ).</span>
+<span class="sd">        kc (ArrayLike): Complementary modulus. kc ∈ ℝ, kc ≠ 0.</span>
+<span class="sd">        p (ArrayLike): Characteristic parameter. p ∈ ℝ, p ≠ 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Scalar or `numpy.ndarray` broadcast from inputs. Returns the Cauchy principal value when 1 + px² &lt; 0.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If kc = 0, 1 + px² = 0, \|kc\| &gt; 1 for p &lt; 0, or inputs contain NaN.</span>
+
+<span class="sd">    Graph:</span>
+<span class="sd">        .. raw:: html</span>
+
+<span class="sd">            &lt;iframe src=&quot;./../_static/figures/el3.html&quot; width=&quot;100%&quot; height=&quot;500px&quot;&gt;&lt;/iframe&gt;</span>
+
+<span class="sd">    Special Cases:</span>
+<span class="sd">        - el3(0, kc, p) = 0</span>
+<span class="sd">        - el3(∞, kc, p) = cel(kc, p, 1, 1) = Π(1-p, 1-kc²)</span>
+
+<span class="sd">    Related Functions:</span>
+<span class="sd">        With x = tan φ, p = 1 - n and kc² = 1 - m:</span>
+<span class="sd">            - Π(φ, n, m) = el3(x, kc, p)</span>
+<span class="sd">            - el3(∞, kc, p) = cel(kc, p, 1, 1) = Π(n, m)</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        - Bulirsch, R. “Numerical Calculation of Elliptic Integrals and Elliptic Functions. III.” Numerische Mathematik 13, no. 4 (August 1, 1969): 305-15. https://doi.org/10.1007/BF02165405.</span>
+<span class="sd">        - Carlson, B. C. “DLMF: Chapter 19 Elliptic Integrals.” Accessed February 19, 2025. https://dlmf.nist.gov/19.</span>
+<span class="sd">        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 0.5.1. Released October 10, 2025. https://docs.rs/ellip/0.5.1/ellip/index.html.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">returnfloat</span><span class="p">(</span><span class="n">_ellip</span><span class="o">.</span><span class="n">el3</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">kc</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025 Sira Pornsiriprasert.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

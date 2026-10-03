@@ -1,0 +1,104 @@
+Date : 2025-10-16 11:32:12
+Directory : /home/psira/Code/python/ellippy
+Total : 52 files,  2925 codes, 145 comments, 587 blanks, all 3657 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Python           |         16 |      1,009 |         47 |        363 |      1,419 |
+| toml             |          1 |        895 |          0 |         52 |        947 |
+| YAML             |          2 |        338 |          7 |         16 |        361 |
+| XML              |          4 |        300 |          4 |          8 |        312 |
+| reStructuredText |         23 |        140 |         64 |        103 |        307 |
+| C++              |          1 |         81 |          6 |          7 |         94 |
+| Markdown         |          1 |         64 |          0 |         14 |         78 |
+| Rust             |          1 |         51 |          4 |          6 |         61 |
+| Batch            |          1 |         26 |          1 |          9 |         36 |
+| CSS              |          1 |         12 |          5 |          4 |         21 |
+| Makefile         |          1 |          9 |          7 |          5 |         21 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                           | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                              |         52 |      2,925 |        145 |        587 |      3,657 |
+| . (Files)                                                                                      |          2 |        959 |          0 |         66 |      1,025 |
+| .github                                                                                        |          2 |        338 |          7 |         16 |        361 |
+| .github/workflows                                                                              |          2 |        338 |          7 |         16 |        361 |
+| docs                                                                                           |         29 |        379 |         89 |        141 |        609 |
+| docs (Files)                                                                                   |          2 |         35 |          8 |         14 |         57 |
+| docs/source                                                                                    |         27 |        344 |         81 |        127 |        552 |
+| docs/source (Files)                                                                            |          2 |        138 |         30 |         75 |        243 |
+| docs/source/_static                                                                            |          3 |        162 |          7 |          8 |        177 |
+| docs/source/functions                                                                          |         22 |         44 |         44 |         44 |        132 |
+| logo                                                                                           |          2 |        150 |          2 |          4 |        156 |
+| python                                                                                         |         16 |      1,048 |         43 |        354 |      1,445 |
+| python/benchmark                                                                               |          2 |          0 |          4 |          2 |          6 |
+| python/ellippy                                                                                 |          7 |        767 |         20 |        302 |      1,089 |
+| python/tests                                                                                   |          7 |        281 |         19 |         50 |        350 |
+| python/tests (Files)                                                                           |          6 |        200 |         13 |         43 |        256 |
+| python/tests/data                                                                              |          1 |         81 |          6 |          7 |         94 |
+| python/tests/data/boost                                                                        |          1 |         81 |          6 |          7 |         94 |
+| src                                                                                            |          1 |         51 |          4 |          6 |         61 |
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                       | language         | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /home/psira/Code/python/ellippy/.github/workflows/doc.yml                                      | YAML             |         85 |          6 |          6 |         97 |
+| /home/psira/Code/python/ellippy/.github/workflows/publish.yml                                  | YAML             |        253 |          1 |         10 |        264 |
+| /home/psira/Code/python/ellippy/README.md                                                      | Markdown         |         64 |          0 |         14 |         78 |
+| /home/psira/Code/python/ellippy/docs/Makefile                                                  | Makefile         |          9 |          7 |          5 |         21 |
+| /home/psira/Code/python/ellippy/docs/make.bat                                                  | Batch            |         26 |          1 |          9 |         36 |
+| /home/psira/Code/python/ellippy/docs/source/_static/custom.css                                 | CSS              |         12 |          5 |          4 |         21 |
+| /home/psira/Code/python/ellippy/docs/source/_static/ellippy-logo.svg                           | XML              |         71 |          1 |          2 |         74 |
+| /home/psira/Code/python/ellippy/docs/source/_static/ellippy-square.svg                         | XML              |         79 |          1 |          2 |         82 |
+| /home/psira/Code/python/ellippy/docs/source/conf.py                                            | Python           |         42 |         10 |         16 |         68 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.cel.rst                 | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.cel1.rst                | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.cel2.rst                | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.el1.rst                 | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.el2.rst                 | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.bulirsch.el3.rst                 | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprc.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprd.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprf.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprg.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.carlson.elliprj.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipd.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipdinc.rst           | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipe.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipeinc.rst           | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipf.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellipk.rst              | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellippi.rst             | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellippiinc.rst          | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.legendre.ellippiinc_bulirsch.rst | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.misc.heuman_lambda.rst           | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/functions/ellippy.misc.jacobi_zeta.rst             | reStructuredText |          2 |          2 |          2 |          6 |
+| /home/psira/Code/python/ellippy/docs/source/index.rst                                          | reStructuredText |         96 |         20 |         59 |        175 |
+| /home/psira/Code/python/ellippy/logo/ellippy-logo.svg                                          | XML              |         71 |          1 |          2 |         74 |
+| /home/psira/Code/python/ellippy/logo/ellippy-square.svg                                        | XML              |         79 |          1 |          2 |         82 |
+| /home/psira/Code/python/ellippy/python/benchmark/__init__.py                                   | Python           |          0 |          2 |          1 |          3 |
+| /home/psira/Code/python/ellippy/python/benchmark/bench_utils.py                                | Python           |          0 |          2 |          1 |          3 |
+| /home/psira/Code/python/ellippy/python/ellippy/__about__.py                                    | Python           |         11 |          3 |          5 |         19 |
+| /home/psira/Code/python/ellippy/python/ellippy/__init__.py                                     | Python           |         31 |          7 |          5 |         43 |
+| /home/psira/Code/python/ellippy/python/ellippy/_ellip.py                                       | Python           |         43 |          2 |         10 |         55 |
+| /home/psira/Code/python/ellippy/python/ellippy/bulirsch.py                                     | Python           |        176 |          2 |         75 |        253 |
+| /home/psira/Code/python/ellippy/python/ellippy/carlson.py                                      | Python           |        162 |          2 |         66 |        230 |
+| /home/psira/Code/python/ellippy/python/ellippy/legendre.py                                     | Python           |        282 |          2 |        114 |        398 |
+| /home/psira/Code/python/ellippy/python/ellippy/misc.py                                         | Python           |         62 |          2 |         27 |         91 |
+| /home/psira/Code/python/ellippy/python/tests/__init__.py                                       | Python           |          0 |          2 |          1 |          3 |
+| /home/psira/Code/python/ellippy/python/tests/common_utils.py                                   | Python           |         30 |          3 |         12 |         45 |
+| /home/psira/Code/python/ellippy/python/tests/data/boost/carlson.cpp                            | C++              |         81 |          6 |          7 |         94 |
+| /home/psira/Code/python/ellippy/python/tests/test_bulirsch.py                                  | Python           |         46 |          2 |          8 |         56 |
+| /home/psira/Code/python/ellippy/python/tests/test_carlson.py                                   | Python           |         39 |          2 |          7 |         48 |
+| /home/psira/Code/python/ellippy/python/tests/test_legendre.py                                  | Python           |         68 |          2 |         11 |         81 |
+| /home/psira/Code/python/ellippy/python/tests/test_misc.py                                      | Python           |         17 |          2 |          4 |         23 |
+| /home/psira/Code/python/ellippy/src/lib.rs                                                     | Rust             |         51 |          4 |          6 |         61 |
+| /home/psira/Code/python/ellippy/uv.lock                                                        | toml             |        895 |          0 |         52 |        947 |
+| Total                                                                                          |                  |      2,925 |        145 |        587 |      3,657 |
++------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
