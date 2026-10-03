@@ -33,6 +33,8 @@ jobs:
             target: ppc64le
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: recursive
       - uses: actions/setup-python@v7
         with:
           python-version: 3.x
@@ -83,6 +85,8 @@ jobs:
             target: armv7
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: recursive
       - uses: actions/setup-python@v7
         with:
           python-version: 3.x
@@ -131,6 +135,8 @@ jobs:
             target: x86
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: recursive
       - uses: actions/setup-python@v7
         with:
           python-version: 3.x
@@ -177,6 +183,8 @@ jobs:
             target: aarch64
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: recursive
       - uses: actions/setup-python@v7
         with:
           python-version: 3.x
@@ -215,6 +223,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: recursive
       - name: Cache Python dependencies
         uses: actions/cache@v6
         with:
