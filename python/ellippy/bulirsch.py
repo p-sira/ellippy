@@ -131,6 +131,40 @@ def cel2(kc: ArrayLike, a: ArrayLike, b: ArrayLike) -> FloatArray | float:
     return returnfloat(ellippy_binding.cel2, kc, a, b)
 
 
+def cel3(kc: ArrayLike, p: ArrayLike) -> FloatArray | float:
+    r"""Computes complete elliptic integral of the third kind in Bulirsch's form ``cel3``.
+
+    .. math::
+
+        \mathrm{cel3}(k_c, p) = \int_0^{\pi/2} \frac{\mathrm{d}\theta}{\left(\cos^2\theta + p\sin^2\theta\right)\,\sqrt{\cos^2\theta + k_c^2\sin^2\theta}}
+
+    Args:
+        kc (ArrayLike): Complementary modulus. kc ∈ ℝ, kc ≠ 0.
+        p (ArrayLike): Characteristic parameter. p ∈ ℝ, p ≠ 0.
+
+    Returns:
+        Scalar or `numpy.ndarray` broadcast from inputs. Returns the Cauchy principal value when p < 0.
+
+    Raises:
+        ValueError: If kc = 0, p = 0, more than one argument is infinite, or inputs contain NaN.
+
+    Special Cases:
+        - cel3(kc, 1) = cel1(kc)
+        - cel3(kc, p) = 0 for \|kc\| = ∞
+        - cel3(kc, p) = 0 for \|p\| = ∞
+
+    Related Functions:
+        With kc² = 1 - m and p = 1 - n:
+            - Π(n, m) = cel(kc, p, 1, 1) = cel3(kc, p)
+            - cel3(kc, 1) = cel1(kc) = K(m)
+
+    References:
+        - Bulirsch, R. “Numerical Calculation of Elliptic Integrals and Elliptic Functions. III.” Numerische Mathematik 13, no. 4 (August 1, 1969): 305-15. https://doi.org/10.1007/BF02165405.
+        - Pornsiriprasert, Sira. Ellip: Elliptic Integrals for Rust. V. 1.2.0. Released October 2, 2026. https://docs.rs/ellip/1.2.0/ellip/index.html.
+    """
+    return returnfloat(ellippy_binding.cel3, kc, p)
+
+
 def el1(x: ArrayLike, kc: ArrayLike) -> FloatArray | float:
     r"""Computes Bulirsch incomplete integral of the first kind ``el1``.
 

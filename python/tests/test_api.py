@@ -29,8 +29,29 @@ def test_scalar_return_types():
     assert isinstance(ep.ellipk(np.int64(0)), float)
     assert isinstance(ep.ellipk(np.float64(0.5)), float)
     assert isinstance(ep.cel1(1), float)
+    assert isinstance(ep.cel3(1, 1), float)
     assert isinstance(ep.elliprf(1, 1, 1), float)
     assert isinstance(ep.jacobi_zeta(0, 0.5), float)
+
+    k, e = ep.ellipke(0.5)
+    assert isinstance(k, float)
+    assert isinstance(e, float)
+
+
+def test_ellipke_and_cel3():
+    # ellipke returns (K, E), which must agree with ellipk and ellipe.
+    k, e = ep.ellipke(np.array([0.1, 0.2, 0.3]))
+    assert isinstance(k, np.ndarray)
+    assert isinstance(e, np.ndarray)
+    np.testing.assert_allclose(k, ep.ellipk([0.1, 0.2, 0.3]))
+    np.testing.assert_allclose(e, ep.ellipe([0.1, 0.2, 0.3]))
+
+    # cel3(kc, p) = cel(kc, p, 1, 1), and cel3(kc, 1) = cel1(kc).
+    np.testing.assert_allclose(
+        ep.cel3([0.5, 0.5], [0.25, 1.0]),
+        ep.cel([0.5, 0.5], [0.25, 1.0], [1.0, 1.0], [1.0, 1.0]),
+    )
+    np.testing.assert_allclose(ep.cel3(0.5, 1.0), ep.cel1(0.5))
 
 
 def test_value_errors():
@@ -39,6 +60,12 @@ def test_value_errors():
 
     with pytest.raises(ValueError):
         ep.cel(0.0, 1.0, 1.0, 1.0)
+
+    with pytest.raises(ValueError):
+        ep.cel3(0.0, 1.0)
+
+    with pytest.raises(ValueError):
+        ep.ellipke(2.0)
 
     with pytest.raises(ValueError):
         ep.elliprf(-1.0, 1.0, 1.0)
