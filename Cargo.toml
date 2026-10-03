@@ -15,9 +15,13 @@ include = ["/src", "/LICENSE"]
 name = "ellippy_binding"
 crate-type = ["cdylib"]
 
+[[bin]]
+name = "bench_threshold"
+path = "src/bin/bench_threshold.rs"
+
 [dependencies]
 ellip = "1.2.0"
-ellip-rayon = "1.2.0"
+ellip-rayon = "1.2.1"
 numpy = "0.29.0"
 pyo3 = { version = "0.29.3", features = ["extension-module"] }
 rayon = "1.11"
