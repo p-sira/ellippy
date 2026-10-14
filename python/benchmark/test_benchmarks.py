@@ -8,7 +8,8 @@ Each function is benchmarked three times:
 - with scalar inputs, which goes through the scalar fast path,
 - with single-element numpy arrays, which goes through the array binding
   without releasing the GIL (dominated by FFI/dispatch overhead),
-- with large numpy array inputs, which goes through the vectorized (rayon) path.
+- with larger numpy array inputs, which goes through the batch binding and
+  uses the per-function execution threshold.
 
 Run locally with:
     uv run pytest python/benchmark --codspeed
@@ -16,17 +17,13 @@ Run locally with:
 
 import os
 
-# Pin the rayon pool to a single worker thread. With several workers, rayon's
-# work stealing splits the input differently on every call, so the measured
-# instruction count of the array benchmarks fluctuates by up to ~40% between
-# runs of identical code. A single worker keeps the parallel code path
-# exercised while making the measurement deterministic. Must be set before
-# the rayon global pool is first used.
+# Use one worker for deterministic instruction counts when a benchmark reaches
+# its function's parallel cutover. Set this before initializing the global pool.
 os.environ.setdefault("RAYON_NUM_THREADS", "1")
 
-import ellippy  # noqa: E402
-import numpy as np  # noqa: E402
-import pytest  # noqa: E402
+import ellippy
+import numpy as np
+import pytest
 
 ARRAY_SIZE = 1_000
 

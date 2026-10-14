@@ -59,7 +59,9 @@ jobs:
         run: uv run maturin develop --release
         env:
           # Keep debug symbols so CodSpeed flame graphs can resolve Rust frames
+          # (strip = true in Cargo.toml would otherwise remove them)
           CARGO_PROFILE_RELEASE_DEBUG: "true"
+          CARGO_PROFILE_RELEASE_STRIP: "false"
 
       - name: Run benchmarks
         uses: CodSpeedHQ/action@v5

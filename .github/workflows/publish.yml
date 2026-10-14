@@ -61,7 +61,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.platform.target }}
-          args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter --compatibility pypi
+          args: --release --locked ${{ env.STRIP_FLAG }} --out dist --find-interpreter --compatibility pypi
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
           manylinux: auto
       - name: Upload wheels
@@ -115,7 +115,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.platform.target }}
-          args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter --compatibility pypi
+          args: --release --locked ${{ env.STRIP_FLAG }} --out dist --find-interpreter --compatibility pypi
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
           manylinux: auto
       - name: Upload wheels
@@ -164,7 +164,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.platform.target }}
-          args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter --compatibility pypi
+          args: --release --locked ${{ env.STRIP_FLAG }} --out dist --find-interpreter --compatibility pypi
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
       - name: Upload wheels
         uses: actions/upload-artifact@v7
@@ -211,7 +211,7 @@ jobs:
         uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.platform.target }}
-          args: --release ${{ env.STRIP_FLAG }} --out dist --find-interpreter --compatibility pypi
+          args: --release --locked ${{ env.STRIP_FLAG }} --out dist --find-interpreter --compatibility pypi
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
       - name: Upload wheels
         uses: actions/upload-artifact@v7
