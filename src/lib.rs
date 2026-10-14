@@ -21,7 +21,13 @@ fn batch<T: Send>(
     if parallel {
         (0..n).into_par_iter().map(f).collect()
     } else {
-        (0..n).map(f).collect()
+        // Explicit loop: exact capacity and no per-element `GenericShunt`
+        // adapter, which kept the serial path slower than zipped iterators.
+        let mut out = Vec::with_capacity(n);
+        for i in 0..n {
+            out.push(f(i)?);
+        }
+        Ok(out)
     }
 }
 
@@ -30,6 +36,8 @@ macro_rules! compute_batch {
         $(if $arg.len() != $n {
             return Err(PyRuntimeError::new_err(concat!(stringify!($func), ": All arguments must have the same length.")));
         })+
+        // Re-slice to `n` so the optimizer can drop per-element bounds checks.
+        $(let $arg = &$arg[..$n];)+
         let thresholds = thresholds::$func;
         let parallel = execution::should_parallel($n >= thresholds.0);
         let work = || batch($n, parallel, |i| ellip::$func($($arg[i]),+));
