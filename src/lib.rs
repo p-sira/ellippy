@@ -6,24 +6,39 @@
 use numpy::{PyArray1, PyReadonlyArray1};
 use pyo3::{exceptions::PyRuntimeError, prelude::*};
 
-/// Release the GIL only when it is worth it.
-///
-/// For small batches, the GIL-release/reacquire round-trip plus Rayon
-/// scheduling overhead can exceed the computation itself.  We skip
-/// `py.detach()` when `$n <= DETACH_THRESHOLD`.
-///
-/// The threshold of 32 matches pymagba's empirically-determined value for
-/// Dipole, whose per-point cost (elliptic integrals) is comparable to ours.
-const DETACH_THRESHOLD: usize = 32;
+use rayon::prelude::*;
 
-macro_rules! detach_if_multi {
-    ($py:expr, $n:expr, $work:expr) => {
-        if $n <= DETACH_THRESHOLD {
-            $work
+mod execution;
+mod thresholds;
+
+// Both paths call the same scalar kernel and preserve input order. Keeping
+// dispatch here makes thresholds part of the Python wheel's source snapshot.
+fn batch<T: Send>(
+    n: usize,
+    parallel: bool,
+    f: impl Fn(usize) -> Result<T, ellip::StrErr> + Sync + Send,
+) -> Result<Vec<T>, ellip::StrErr> {
+    if parallel {
+        (0..n).into_par_iter().map(f).collect()
+    } else {
+        (0..n).map(f).collect()
+    }
+}
+
+macro_rules! compute_batch {
+    ($py:expr, $func:ident, $n:expr, [$($arg:ident),+]) => {{
+        $(if $arg.len() != $n {
+            return Err(PyRuntimeError::new_err(concat!(stringify!($func), ": All arguments must have the same length.")));
+        })+
+        let thresholds = thresholds::$func;
+        let parallel = execution::should_parallel($n >= thresholds.0);
+        let work = || batch($n, parallel, |i| ellip::$func($($arg[i]),+));
+        if execution::should_detach($n >= thresholds.1) {
+            $py.detach(work)
         } else {
-            $py.detach(|| $work)
+            work()
         }
-    };
+    }};
 }
 
 macro_rules! impl_py {
@@ -33,11 +48,10 @@ macro_rules! impl_py {
     // Two semicolon-separated sections:
     //
     //   rayon { func:scalar:[args], ... }
-    //     Functions in ellip-rayon returning Vec<f64>; parallelism is
-    //     delegated to ellip-rayon's internal threshold.
+    //     Batch functions returning Vec<f64>, with binding-owned dispatch.
     //
     //   tuple { func:scalar:[args], ... }
-    //     Functions in ellip-rayon returning Vec<(f64, f64)>; the result
+    //     Batch functions returning Vec<(f64, f64)>; the result
     //     is unzipped into two PyArray1s.  Currently: ellipke only.
     // -----------------------------------------------------------------------
     (
@@ -52,9 +66,9 @@ macro_rules! impl_py {
                 py: Python<'py>,
                 $($rargs: PyReadonlyArray1<f64>),*
             ) -> PyResult<Bound<'py, PyArray1<f64>>> {
-                $( let $rargs = $rargs.as_slice().expect("Non-contiguous array"); )*
+                $( let $rargs = $rargs.as_slice().map_err(|_| pyo3::exceptions::PyValueError::new_err("Expected contiguous arrays"))?; )*
                 let n = impl_py!(@first_len $($rargs),*);
-                let result = detach_if_multi!(py, n, ellip_rayon::$rfunc($($rargs),*));
+                let result = compute_batch!(py, $rfunc, n, [$($rargs),*]);
                 match result {
                     Ok(ans) => Ok(PyArray1::from_vec(py, ans)),
                     Err(e) => Err(PyRuntimeError::new_err(e)),
@@ -77,9 +91,9 @@ macro_rules! impl_py {
                 py: Python<'py>,
                 $($targs: PyReadonlyArray1<f64>),*
             ) -> PyResult<(Bound<'py, PyArray1<f64>>, Bound<'py, PyArray1<f64>>)> {
-                $( let $targs = $targs.as_slice().expect("Non-contiguous array"); )*
+                $( let $targs = $targs.as_slice().map_err(|_| pyo3::exceptions::PyValueError::new_err("Expected contiguous arrays"))?; )*
                 let n = impl_py!(@first_len $($targs),*);
-                let result = detach_if_multi!(py, n, ellip_rayon::$tfunc($($targs),*));
+                let result = compute_batch!(py, $tfunc, n, [$($targs),*]);
                 match result {
                     Ok(ans) => {
                         let (ks, es): (Vec<f64>, Vec<f64>) = ans.into_iter().unzip();
@@ -109,6 +123,11 @@ macro_rules! impl_py {
                 m.add_function(wrap_pyfunction!($tfunc, m)?)?;
                 m.add_function(wrap_pyfunction!($tscalar, m)?)?;
             )*
+            #[cfg(feature = "threshold-calibration")]
+            {
+                m.add_function(wrap_pyfunction!(execution::_set_threshold_calibration, m)?)?;
+                m.add_function(wrap_pyfunction!(execution::_threshold_calibration_state, m)?)?;
+            }
             Ok(())
         }
     };
@@ -117,7 +136,7 @@ macro_rules! impl_py {
     (@first_len $head:ident $(, $tail:ident)*) => { $head.len() };
 }
 
-// Thresholds are tuned per-function in vendor/ellip/ellip-rayon for FFI overhead.
+// Per-function Rayon and interpreter thresholds live in thresholds.rs.
 impl_py!(
     ellipk             : ellipk_scalar             : [m],
     ellipe             : ellipe_scalar             : [m],

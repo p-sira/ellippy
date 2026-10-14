@@ -8,6 +8,15 @@ import pytest
 
 EPSILON = 2.2204460492503131e-16
 TEST_DATA_DIR = Path(__file__).parent / "data" / "wolfram"
+if not TEST_DATA_DIR.exists():
+    TEST_DATA_DIR = (
+        Path(__file__).resolve().parents[2]
+        / "vendor"
+        / "ellip"
+        / "tests"
+        / "data"
+        / "wolfram"
+    )
 
 
 def load_test_data(filename):
@@ -16,7 +25,7 @@ def load_test_data(filename):
     if not filepath.exists():
         pytest.skip(f"Test data file {filename} not found")
 
-    return np.loadtxt(filepath, delimiter=",", dtype=np.float64)
+    return np.loadtxt(filepath, delimiter=",", dtype=np.float64, quotechar='"')
 
 
 def ellip_test_suite(func, n_args, test_cases):
@@ -30,13 +39,19 @@ def ellip_test_suite(func, n_args, test_cases):
     """
 
     class TestSuite:
-        @pytest.mark.parametrize("filename,rtol", test_cases)
-        def test_function(self, filename, rtol):
+        @pytest.mark.parametrize(
+            "filename,rtol,atol",
+            [
+                (case[0], case[1], case[2] if len(case) == 3 else 0.0)
+                for case in test_cases
+            ],
+        )
+        def test_function(self, filename, rtol, atol):
             data = load_test_data(filename)
             inps = np.array_split(data[:, :n_args], n_args, axis=1)
             expected = data[:, -1]
             result = func(*inps)
-            np.testing.assert_allclose(result, expected, rtol=rtol)
+            np.testing.assert_allclose(result, expected, rtol=rtol, atol=atol)
 
     # Set the class name dynamically
     TestSuite.__name__ = f"Test{func.__name__.title()}"

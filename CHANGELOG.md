@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.1
+
+This version corresponds to Ellip v1.2.3.
+
+**Improvements**
+
+- Add reproducible public-Python threshold calibration with independent Rayon and interpreter-detachment controls, branch verification, process-isolated timing, and input-layout validation.
+- Own batch dispatch and per-function thresholds in the Python binding, using the published `ellip` kernels and Rayon directly. Calibrate conservative Rayon cutovers on a 12-worker reference host and detach at those cutovers as a responsiveness policy.
+- Reject non-contiguous binding inputs with a Python error instead of panicking.
+
 ## 1.2.0
 
 **New functions**
@@ -9,7 +19,7 @@
 
 **Improvements**
 
-- **FFI threshold tuning**: `ellip-rayon`'s built-in parallelism threshold is calibrated at the pure-Rust level. A custom `ellip-rayon` build's parallelization thresholds were tuned to avoiding Rayon scheduling overhead and the redundant buffer copy.
+- Use upstream Rust-calibrated `ellip-rayon` thresholds.
 - Skip GIL release for single-element array calls. `py.detach()` has a fixed overhead that exceeds the cost of the computation itself for small inputs; single-element arrays now bypass it.
 - Add `gil_used = false` to `#[pymodule]` for forward compatibility with free-threading Python (PEP 703).
 - Add `strip = true` to the release profile to reduce the size of the shared library.

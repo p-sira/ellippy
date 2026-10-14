@@ -10,3 +10,4 @@ docs/build/
 ellippy_binding.cpython-*
 __pycache__
 build
+/benchmark-results/

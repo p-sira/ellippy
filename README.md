@@ -107,3 +107,7 @@ Bibtex format:
     title = {Ellip: An Elliptic Integral Library for Rust}, 
     journal = {Journal of Open Source Software} } 
 ```
+
+## Performance calibration
+
+For advanced users who wish the best performance fine tuned to their specific machines, see the [Python-path calibration guide](benchmarks/perf_calibration/README.md) for measuring Rayon and interpreter-detachment crossovers through the public API.
