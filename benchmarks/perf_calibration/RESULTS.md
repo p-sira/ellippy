@@ -4,7 +4,7 @@ Reference: AMD Ryzen 5 4600H, Linux x86-64, 12 Rayon workers, CPython 3.13.3,
 NumPy 2.4.2, release build with LTO. These are conservative reference defaults,
 not optimal thresholds for every input layout or machine.
 
-The discovery sweep measured ordinary and near-boundary inputs with independent
+The original discovery sweep measured ordinary and near-boundary inputs with independent
 Rust and GIL policies, then extended, refined and validated alternate layouts.
 For each function, the initial cutover rounded the largest confirmed contiguous
 float64 candidate across both distributions and GIL contexts up to a power of
@@ -21,30 +21,63 @@ showed progress for the sampled kernels.
 
 | Function | First Rayon size | First detach size |
 |---|---:|---:|
-| `cel` | 32,768 | 32,768 |
-| `cel1` | 65,536 | 65,536 |
-| `cel2` | 65,536 | 65,536 |
-| `cel3` | 32,768 | 32,768 |
-| `el1` | 16,384 | 16,384 |
-| `el2` | 4,096 | 4,096 |
+| `cel` | 8,192 | 8,192 |
+| `cel1` | 16,384 | 16,384 |
+| `cel2` | 8,192 | 8,192 |
+| `cel3` | 8,192 | 8,192 |
+| `el1` | 4,096 | 4,096 |
+| `el2` | 32,768 | 32,768 |
 | `el3` | 4,096 | 4,096 |
 | `ellipd` | 8,192 | 8,192 |
-| `ellipdinc` | 2,048 | 2,048 |
-| `ellipe` | 32,768 | 32,768 |
-| `ellipeinc` | 2,048 | 2,048 |
-| `ellipf` | 4,096 | 4,096 |
+| `ellipdinc` | 4,096 | 4,096 |
+| `ellipe` | 16,384 | 16,384 |
+| `ellipeinc` | 1,024 | 1,024 |
+| `ellipf` | 1,024 | 1,024 |
 | `ellipk` | 65,536 | 65,536 |
 | `ellipke` | 32,768 | 32,768 |
-| `ellippi` | 2,048 | 2,048 |
-| `ellippiinc` | 1,024 | 1,024 |
-| `ellippiinc_bulirsch` | 2,048 | 2,048 |
-| `elliprc` | 32,768 | 32,768 |
-| `elliprd` | 4,096 | 4,096 |
-| `elliprf` | 8,192 | 8,192 |
+| `ellippi` | 1,024 | 1,024 |
+| `ellippiinc` | 32,768 | 32,768 |
+| `ellippiinc_bulirsch` | 1,024 | 1,024 |
+| `elliprc` | 8,192 | 8,192 |
+| `elliprd` | 2,048 | 2,048 |
+| `elliprf` | 2,048 | 2,048 |
 | `elliprg` | 4,096 | 4,096 |
-| `elliprj` | 4,096 | 4,096 |
-| `heuman_lambda` | 1,024 | 1,024 |
+| `elliprj` | 1,024 | 1,024 |
+| `heuman_lambda` | 512 | 512 |
 | `jacobi_zeta` | 1,024 | 1,024 |
+
+## Regenerated candidate selection
+
+The regenerated `candidates.md` matches the completed Ellip 1.2.3 report
+`python-path-20261014-205328-118827`, containing 31,689 timing records with
+12 Rayon workers and 5 ms sample windows. Reviewed selections, source/binary
+hashes, report hash, and candidate evidence are preserved in
+[reviewed_candidates.json](reviewed_candidates.json).
+
+A function is eligible for a new cutover when all four contiguous float64
+Rayon comparisons have confirmed crossovers: both input distributions under
+both retained and detached GIL execution. The selected cutover rounds the
+largest confirmed Rayon candidate across every layout up to a power of two.
+This uses late confirmed list-input crossovers instead of lowering cutovers
+solely from float64 results. `ellipk` retains 65,536 because its detached,
+uniform float64 comparison is inconclusive.
+
+This changes 18 functions: 15 cutovers decrease, while `el2`, `ellipdinc`, and
+`ellippiinc` increase to account for confirmed late list-input crossovers.
+Other cutovers remain unchanged. `inconclusive` and `no_crossover` rows do not
+supply a threshold, and unresolved layouts remain outside the confirmed
+performance evidence. These constants do not guarantee faster execution for
+those layouts.
+
+Detachment remains a responsiveness policy at the selected Rayon cutover.
+Most GIL latency comparisons remain inconclusive. `ellipdinc` has confirmed
+float64 candidates at 4,096 for both distributions, matching its new cutover.
+The other partial GIL candidates are not adopted as global latency thresholds.
+Changing the Rayon policy also changes the automatic execution used by the GIL
+comparison. The supplied benchmark is the basis for this adjustment; no
+additional timing run is used to override its candidates. All 253 calibration
+tests passed with the revised compiled cutovers, including boundary and
+numerical checks.
 
 ## Historical validation (Ellip 1.2.0)
 
@@ -70,7 +103,7 @@ The defaults prioritize avoiding premature Rayon dispatch for small batches
 and retaining Python-thread responsiveness for large ones. Contiguous float64
 inputs can benefit from earlier parallel cutovers than these conservative defaults.
 
-## Current validation (Ellip 1.2.3)
+## Pre-adjustment validation (Ellip 1.2.3)
 
 A full compiled-cutover check used 5 ms sample windows, followed by a 10 ms
 recheck of six functions with slower layout comparisons. Together these runs
@@ -122,7 +155,8 @@ This supports the responsiveness policy independently of latency optimality.
 
 ## Reproduce and inspect
 
-Commands and raw report hashes are recorded in the current
+Commands and raw report hashes are recorded in the regenerated
+[candidate review](reviewed_candidates.json), the earlier
 [Ellip 1.2.3 review](reviewed_results_ellip_1_2_3.json) and the historical
 [Ellip 1.2.0 review](reviewed_results.json).
 The full raw reports remain under ignored `benchmark-results/`. The review

@@ -9,6 +9,7 @@ This version corresponds to Ellip v1.2.3.
 - Add reproducible public-Python threshold calibration with independent Rayon and interpreter-detachment controls, branch verification, process-isolated timing, and input-layout validation.
 - Own batch dispatch and per-function thresholds in the Python binding, using the published `ellip` kernels and Rayon directly. Calibrate conservative Rayon cutovers on a 12-worker reference host and detach at those cutovers as a responsiveness policy.
 - Reject non-contiguous binding inputs with a Python error instead of panicking.
+- Refresh 18 batch cutovers from regenerated Python-path candidates, including later list-input crossovers; retain existing cutovers where float64 evidence is incomplete.
 
 ## 1.2.0
 
